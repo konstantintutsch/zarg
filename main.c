@@ -112,7 +112,7 @@ void *argument_value(char **arguments,
         ptr = &numbers;
         break;
     case 's':
-        ptr = &strings;
+        ptr = (void *)strings;
         break;
     }
 
