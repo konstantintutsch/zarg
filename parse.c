@@ -21,24 +21,6 @@
 #include <string.h>
 
 /**
- * array_elements - Counts how many elements exist in an array of pointers to strings
- *
- * @arg1: array
- *
- * @return: counted elements
- */
-
-int array_elements(char **array)
-{
-    int count = 0;
-
-    while (array[count] != NULL)
-        count++;
-
-    return (count);
-}
-
-/**
  * argument_count - Count how many arguments of a given type exist
  *
  * @arg1: arguments
@@ -51,8 +33,9 @@ int argument_count(char **arguments,
                    Flag  *flag)
 {
     int amount = 0;
+    int length = ppclen(arguments);
 
-    for (int i = 1; i < array_elements(arguments); i++)
+    for (int i = 1; i < length; i++)
     {
         if (is_argument(arguments[i], flag))
             amount++;
@@ -78,11 +61,11 @@ void *argument_value(char **arguments,
 
     int flagc = argument_count(arguments, flag);
     int numbers[flagc];
-    char **strings = malloc(flagc * sizeof(char *));
+    char **strings = malloc(flagc * sizeof(char *) + sizeof(NULL));
 
     int argi = 0;
 
-    for (int i = 0; i < array_elements(arguments); i++)
+    for (int i = 0; i < ppclen(arguments); i++)
     {
         if (!is_flag(arguments[i]))
             continue;
@@ -112,6 +95,7 @@ void *argument_value(char **arguments,
         ptr = &numbers;
         break;
     case 's':
+        strings[argi] = NULL;
         ptr = (void *)strings;
         break;
     }

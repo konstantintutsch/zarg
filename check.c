@@ -19,6 +19,24 @@
 #include <string.h>
 
 /**
+ * ppclen - Counts how many elements exist in an array of pointers to strings
+ *
+ * @arg1: array
+ *
+ * @return: counted elements
+ */
+
+int ppclen(char **array)
+{
+    int count = 0;
+
+    while (array[count] != NULL)
+        count++;
+
+    return (count);
+}
+
+/**
  * is_flag - Check if string is a command line flag
  *
  * @arg1: argument
@@ -48,6 +66,9 @@ int is_flag(char *argument)
 int is_argument(char *argument,
                 Flag *flag)
 {
+    if (!is_flag(argument))
+        return 0;
+
     if ((strcmp(argument + 2, flag->name) == 0) || (argument[1] == flag->code))
         return 1;
 
