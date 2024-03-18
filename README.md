@@ -9,9 +9,12 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 
 ## Features
 
-- Short and long flags: `--example` or `-e`
-- Values for flags: `--example value`
-- Boolean flags with `flag_count() > 0`
+*zarg* aims to be a fast, minimalist and efficient library designed for lightweight applications 🍃
+
+- Short Flags: Dash and single ASCII character ⏱️
+- Long Flags: Double Dash and infinite characters 📍
+- Values: `--example value` 📊
+- Boolean flags with `flag_count() > 0` ✅/❌
 
 ## Installation
 
