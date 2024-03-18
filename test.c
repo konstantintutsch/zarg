@@ -26,19 +26,19 @@ int main(int   argc,
     Flag num  = {"number", 'n', 1, "Print number"};
     Flag str  = {"string", 's', 1, "Print string"};
 
-    if (argument_count(argv, &help) > 0)
+    if (flag_count(argv, &help) > 0)
     {
         printf(" --help,\t-h\tThis dialogue\n --number,\t-n\tPass a number\n --string,\t-s\tPass a string\n");
         return 0;
     }
     
-    char **num_list = argument_value(argv, &num);
-    for (int i = 0; i < argument_count(argv, &num); i++)
+    char **num_list = flag_value(argv, &num);
+    for (int i = 0; i < flag_count(argv, &num); i++)
         printf("Number %d: %d\n", i, atoi(num_list[i]));
     free(num_list);
     
-    char **str_list = argument_value(argv, &str);
-    for (int i = 0; i < argument_count(argv, &str); i++)
+    char **str_list = flag_value(argv, &str);
+    for (int i = 0; i < flag_count(argv, &str); i++)
         printf("String %d: %s\n", i, str_list[i]);
     free(str_list);
 

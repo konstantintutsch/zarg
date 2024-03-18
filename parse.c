@@ -21,15 +21,15 @@
 #include <string.h>
 
 /**
- * argument_count - Count how many arguments of a given type exist
+ * flag_count - Count how many arguments of a given type exist
  *
- * @arg1: arguments
- * @arg2: type, e. g. d,e
+ * @arg1: Arguments
+ * @arg2: Type
  *
- * @return: Count of arguments
+ * @return: Amount
  */
 
-int argument_count(char **arguments,
+int flag_count(char **arguments,
                    Flag  *flag)
 {
     int amount = 0;
@@ -45,19 +45,19 @@ int argument_count(char **arguments,
 }
 
 /**
- * argument_value - Filter out values from a command line arguments
- *             e. g. `-d ./src`,`--directory ./lib` -> `./src`,`./lib`
+ * flag_value - Filter out values from command line arguments
+ *              e. g. `-d ./src`,`--directory ./lib` -> `./src`,`./lib`
  *
- * @arg1: command line arguments
- * @arg2: argument to check for
+ * @arg1: Arguments
+ * @arg2: Type
  *
- * @return: Success
+ * @return: Values
  */
 
-char **argument_value(char **arguments,
+char **flag_value(char **arguments,
                       Flag  *flag)
 {
-    char **values = malloc(argument_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
+    char **values = malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 
     int length = ppclen(arguments);
     int write = 0;

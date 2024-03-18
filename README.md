@@ -11,7 +11,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 
 - Short and long flags: `--example` or `-e`
 - Values for flags: `--example value`
-- Boolean flags with `argument_count() > 0`
+- Boolean flags with `flag_count() > 0`
 
 ## Installation
 
