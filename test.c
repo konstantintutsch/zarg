@@ -28,12 +28,12 @@ int main(int   argc,
         return 0;
     
     char **num_list = flag_value(argv, num);
-    for (int i = 0; i < flag_count(argv, num); i++)
+    for (int i = 0; i < ppclen(num_list); i++)
         printf("Number %d: %d\n", i, atoi(num_list[i]));
     free(num_list);
     
     char **str_list = flag_value(argv, str);
-    for (int i = 0; i < flag_count(argv, str); i++)
+    for (int i = 0; i < ppclen(str_list); i++)
         printf("String %d: %s\n", i, str_list[i]);
     free(str_list);
 

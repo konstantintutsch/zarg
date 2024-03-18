@@ -49,9 +49,10 @@ int main(int   argc,
     int total = 0;
     char **numbers = flag_value(argv, plus);
 
-    for(int i = 0; i < ppclen(numbers); i++)
+    for(int i = 0; i < ppclen(numbers); i++) /* DO NOT use flag_count(argv, plus) */
         total += atoi(numbers[i]);
 
+    free(numbers);
     printf("Your numbers sum up to %d!\n", total);
 
     if (flag_count(argv, encourage) > 0)

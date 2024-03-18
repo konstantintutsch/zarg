@@ -5,6 +5,7 @@
 # main
 
 - Replace `  VALUE` with ` [value]` in help dialogue
+- Add error handling for value flags for which no value was given
 
 # 0.0.3
 

@@ -70,6 +70,12 @@ char **flag_value(char **arguments,
         if (!match_flag(arguments[i], flag))
             continue;
 
+        /* Value was not set */
+        if (i + 1 == length)
+            continue;
+        if (valid_flag(arguments[i + 1]))
+            continue;
+
         values[write] = malloc(strlen(arguments[i + 1]) * sizeof(char));
         strcpy(values[write], arguments[i + 1]);
 
