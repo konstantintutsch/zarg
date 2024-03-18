@@ -18,11 +18,68 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 
 ## Table of Contents
 
+- [Example](#example)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Compiling](#compiling)
 - [Removal](#removal)
 - [Testing](#testing)
+
+## Example
+
+How you can use *zarg*.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <zarg.h>
+
+int main(int   argc,
+         char *argv[])
+{
+              /* long,   short, type (with/without value), description */
+    Flag help = {"help", 'h',   0,                         "Show the applications help dialogue"};
+    Flag plus = {"add",  'a',   1,                         "Add up numbers"};
+
+    if (flag_count(argv, &help) > 0)
+    {
+        printf("[Your help dialogue here]\n");
+        return 0;
+    }
+
+    int total = 0;
+    char **numbers = flag_value(argv, &plus);
+
+    for(int i = 0; i < ppclen(numbers); i++)
+        total += atoi(numbers[i]);
+
+    printf("Your numbers sum up to %d!\n", total);
+
+    return 0;
+}
+```
+
+Compile.
+
+```
+$ gcc -Wall -fstack-protector -lzarg myzarg.c -o myzarg
+```
+
+Then execute:
+
+```
+$ ./myzarg --help
+[Your help dialogue here]
+```
+
+… or
+
+```
+$ ./myzarg --add 2 -a 40
+Your numbers sum up to 42!
+```
+
+A complete list of *zarg*s capabilities is written down in [test.c](/test.c).
 
 ## Installation
 
