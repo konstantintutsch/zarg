@@ -1,4 +1,7 @@
 #ifndef ZARG_H
+
+#include <stdbool.h>
+
 #define ZARG_H
 
 typedef struct {
@@ -11,9 +14,8 @@ typedef struct {
 int    argument_count(char **arguments, Flag *flag);
 char **argument_value(char **arguments, Flag *flag);
 
-int ppclen(char **array);
-
-int is_flag(char *argument);
-int is_argument(char *argument, Flag *flag);
+int  ppclen(char **array);
+bool valid_flag(char *argument);
+bool match_flag(char *argument, Flag *flag);
 
 #endif

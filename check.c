@@ -37,45 +37,43 @@ int ppclen(char **array)
 }
 
 /**
- * is_flag - Check if string is a command line flag
+ * valid_flag - Check if string is a command line flag
  *
  * @arg1: argument
  *
- * @return: 1 Yes
- *          0 No
+ * @return: Yes/No
  */
 
-int is_flag(char *argument)
+bool valid_flag(char *argument)
 {
     if (argument[0] != '-')
-        return 0;
+        return false;
 
     if (argument[1] != '-' && strlen(argument) > 2)
-        return 0;
+        return false;
 
-    return 1;
+    return true;
 }
 
 /**
- * is_argument - Check if string is argument flag
+ * match_flag - Check if string is argument flag
  *
  * @arg1: argument to check
  * @arg2: flag type
  *
- * @return: 1 Yes
- *          0 No
+ * @return: Yes/No
  */
 
-int is_argument(char *argument,
-                Flag *flag)
+bool match_flag(char *argument,
+                 Flag *flag)
 {
-    if (!is_flag(argument))
-        return 0;
+    if (!valid_flag(argument))
+        return false;
 
     if ((strcmp(argument + 2, flag->name) == 0) || (argument[1] == flag->code))
-        return 1;
+        return true;
 
-    return 0;
+    return false;
 }
 
 

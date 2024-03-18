@@ -37,7 +37,7 @@ int argument_count(char **arguments,
 
     for (int i = 1; i < length; i++)
     {
-        if (is_argument(arguments[i], flag))
+        if (match_flag(arguments[i], flag))
             amount++;
     }
 
@@ -64,10 +64,10 @@ char **argument_value(char **arguments,
 
     for (int i = 0; i < length; i++)
     {
-        if (!is_flag(arguments[i]))
+        if (!valid_flag(arguments[i]))
             continue;
 
-        if (!is_argument(arguments[i], flag))
+        if (!match_flag(arguments[i], flag))
             continue;
 
         values[write] = malloc(strlen(arguments[i + 1]) * sizeof(char));
