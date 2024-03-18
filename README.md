@@ -16,6 +16,14 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 - Values: Read strings behind flags and create an array 📊
 - Boolean flags with `flag_count() > 0` ✅/❌
 
+## Table of Contents
+
+- [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Compiling](#compiling)
+- [Removal](#removal)
+- [Testing](#testing)
+
 ## Installation
 
 ### Prerequisites
@@ -23,7 +31,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 - make (*v4.4+*)
 - gcc (*v13.2+*)
 
-### Compile
+### Compiling
 
 To compile libzarg, execute the `build` make rule.
 
