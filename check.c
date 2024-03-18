@@ -47,10 +47,13 @@ int ppclen(char **array)
 
 int is_flag(char *argument)
 {
-    if (argument[0] == '-')
-        return 1;
+    if (argument[0] != '-')
+        return 0;
 
-    return 0;
+    if (argument[1] != '-' && strlen(argument) > 2)
+        return 0;
+
+    return 1;
 }
 
 /**
