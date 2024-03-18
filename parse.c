@@ -54,18 +54,15 @@ int argument_count(char **arguments,
  * @return: Success
  */
 
-void *argument_value(char **arguments,
-                     Flag  *flag)
+char **argument_value(char **arguments,
+                      Flag  *flag)
 {
-    void *ptr;
+    char **values = malloc(argument_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 
-    int flagc = argument_count(arguments, flag);
-    int numbers[flagc];
-    char **strings = malloc(flagc * sizeof(char *) + sizeof(NULL));
+    int length = ppclen(arguments);
+    int write = 0;
 
-    int argi = 0;
-
-    for (int i = 0; i < ppclen(arguments); i++)
+    for (int i = 0; i < length; i++)
     {
         if (!is_flag(arguments[i]))
             continue;
@@ -73,32 +70,13 @@ void *argument_value(char **arguments,
         if (!is_argument(arguments[i], flag))
             continue;
 
-        char *buffer = arguments[i + 1];
+        values[write] = malloc(strlen(arguments[i + 1]) * sizeof(char));
+        strcpy(values[write], arguments[i + 1]);
 
-        switch(flag->type)
-        {
-        case 'i':
-            numbers[argi] = atoi(buffer);
-            break;
-        case 's':
-            strings[argi] = malloc(strlen(buffer) * sizeof(char));
-            strcpy(strings[argi], buffer);
-            break;
-        }
-
-        argi++;
+        write++;
     }
 
-    switch(flag->type)
-    {
-    case 'i':
-        ptr = &numbers;
-        break;
-    case 's':
-        strings[argi] = NULL;
-        ptr = (void *)strings;
-        break;
-    }
+    values[write] = NULL;
 
-    return ptr;
+    return values;
 }

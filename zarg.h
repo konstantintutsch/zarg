@@ -4,12 +4,12 @@
 typedef struct {
     char *name;
     char  code;
-    char  type; /* i > integer; s > string, b > boolean */
+    int   type; /* 0: boolean, 1: with value */
     char *description;
 } Flag;
 
-int   argument_count(char **arguments, Flag *flag);
-void *argument_value(char **arguments, Flag *flag);
+int    argument_count(char **arguments, Flag *flag);
+char **argument_value(char **arguments, Flag *flag);
 
 int ppclen(char **array);
 

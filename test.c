@@ -15,15 +15,16 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "zarg.h"
 
 int main(int   argc,
          char *argv[])
 {
-    Flag help = {"help",   'h', 'b', "Help dialogue"};
-    Flag num  = {"number", 'n', 'i', "Print number"};
-    Flag str  = {"string", 's', 's', "Print string"};
+    Flag help = {"help",   'h', 0, "Help dialogue"};
+    Flag num  = {"number", 'n', 1, "Print number"};
+    Flag str  = {"string", 's', 1, "Print string"};
 
     if (argument_count(argv, &help) > 0)
     {
@@ -31,13 +32,15 @@ int main(int   argc,
         return 0;
     }
     
-    int *num_list = (int *)argument_value(argv, &num);
+    char **num_list = argument_value(argv, &num);
     for (int i = 0; i < argument_count(argv, &num); i++)
-        printf("Number %d: %d\n", i, num_list[i]);
+        printf("Number %d: %d\n", i, atoi(num_list[i]));
+    free(num_list);
     
-    char **str_list = (char **)argument_value(argv, &str);
+    char **str_list = argument_value(argv, &str);
     for (int i = 0; i < argument_count(argv, &str); i++)
         printf("String %d: %s\n", i, str_list[i]);
+    free(str_list);
 
     return 0;
 }

@@ -10,7 +10,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 ## Features
 
 - Short and long flags: `--example` or `-e`
-- Values, string or integer
+- Values for flags: `--example value`
 - Boolean flags with `argument_count() > 0`
 
 ## Installation
