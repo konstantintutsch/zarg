@@ -16,16 +16,16 @@ A C library for standardi**z**ed handling of command line **arg**uments.
 
 ### Compile
 
-To compile and install libzarg, execute the `install` make rule with root privileges.
-
-```
-# make install
-```
-
-If you do not want to install libzarg, you can use the `build` rule.
+To compile libzarg, execute the `build` make rule.
 
 ```
 $ make build
+```
+
+After building libzarg, execute the `install` rule with root privileges to install libzarg to your system.
+
+```
+# make install
 ```
 
 ## Removal

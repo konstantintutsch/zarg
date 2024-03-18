@@ -1,20 +1,33 @@
-CC = LANG=C gcc
-CFLAGS=-Wall -fstack-protector
-
+CC := LANG=C gcc
+CFLAGS := -Wall -fstack-protector
+LDFLAGS := -shared -fPIC
 SRCS := $(filter-out test.c, $(wildcard *.c))
 
-build:
-	$(CC) $(CFLAGS) -shared -fPIC -o libzarg.so $(SRCS)
+# if PREFIX is not set by the enviroment
+ifeq ($(PREFIX),)
+	PREFIX := /usr
+endif
+LIBRARY_PATH := $(PREFIX)/lib/
+INCLUDE_PATH := $(PREFIX)/include/
 
-test:
-	$(CC) $(CFLAGS) -lzarg -o test test.c
+build:
+	$(CC) $(CFLAGS) $(LDFLAGS) -o libzarg.so $(SRCS)
+
+clean: uninstall
+	rm libzarg.so
+	rm test
 
 install: build
-	mv libzarg.so /usr/lib/
-	cp zarg.h /usr/include/
+	install -d $(LIBRARY_PATH)
+	install -m 644 libzarg.so $(LIBRARY_PATH)
+	install -d $(INCLUDE_PATH)
+	install -m 644 zarg.h $(INCLUDE_PATH)
 	ldconfig
 
 uninstall:
-	rm /usr/lib/libzarg.so
-	rm /usr/include/zarg.h
+	rm $(LIBRARY_PATH)libzarg.so
+	rm $(INCLUDE_PATH)zarg.h
 	ldconfig
+
+test: build
+	$(CC) $(CFLAGS) -lzarg -o test test.c
