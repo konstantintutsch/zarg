@@ -14,7 +14,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 - Short Flags: Single dash and single alphanumeric character ⏱️
 - Long Flags: Double dash and multiple alphanumeric characters 📍
 - Values: Read strings behind flags and create an array 📊
-- Boolean flags with `flag_count() > 0` ✅/❌
+- Simple boolean flags ✅/❌
 - Automatically generated help dialogue 📚
 
 ## Table of Contents
@@ -39,10 +39,11 @@ int main(int   argc,
          char *argv[])
 {
     /* long, short, type (with/without value), description */
-    Flag plus =    {"add", 'a', 1, "Add up numbers"};
+    Flag plus = {"add", 'a', 1, "Add up numbers"};
+    Flag encourage = {"encourage", 'e', 0, "Encourage the user"};
 
-    /* argv, Flags, Flag amount */
-    if (zinit(argv, (Flag[]){plus}, 1))
+    /* Help dialogue check, exit */
+    if (zinit(argv, (Flag[]){plus,encourage}, 2))
         return 0;
 
     int total = 0;
@@ -52,6 +53,9 @@ int main(int   argc,
         total += atoi(numbers[i]);
 
     printf("Your numbers sum up to %d!\n", total);
+
+    if (flag_count(argv, encourage) > 0)
+        printf("Great job! That's how one should pass command line arguments!\n");
 
     return 0;
 }
@@ -72,6 +76,7 @@ $ ./myzarg --help
 Options
 --help, -h          Show this dialogue
 --add, -a [value]   Add up numbers
+--encourage, -e     Encourage the user
 ```
 
 … or
@@ -79,6 +84,14 @@ Options
 ```
 $ ./myzarg --add 2 -a 40
 Your numbers sum up to 42!
+```
+
+If you've had a bad day, add `--encourage`!
+
+```
+$ ./myzarg --encourage -a 40 -a 2
+Your numbers sum up to 42!
+Great job! That's how one should pass command line arguments!
 ```
 
 A complete list of *zarg*s capabilities is written down in [test.c](/test.c).
