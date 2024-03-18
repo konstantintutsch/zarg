@@ -1,5 +1,5 @@
 CC := LANG=C gcc
-CFLAGS := -Wall -fstack-protector
+CFLAGS := -O2 -Wall -fstack-protector
 LDFLAGS := -shared -fPIC
 SRCS := $(filter-out test.c, $(wildcard *.c))
 
