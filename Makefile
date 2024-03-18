@@ -6,7 +6,7 @@ SRCS := $(filter-out test.c, $(wildcard *.c))
 build:
 	$(CC) $(CFLAGS) -shared -fPIC -o libzarg.so $(SRCS)
 
-test: install
+test:
 	$(CC) $(CFLAGS) -lzarg -o test test.c
 
 install: build
