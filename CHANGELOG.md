@@ -2,6 +2,10 @@
 
 ⚠️  — Breaking change
 
+# main
+
+- Replace `  VALUE` with ` [value]` in help dialogue
+
 # 0.0.3
 
 - Automatic help dialogue generation with `zinit()`

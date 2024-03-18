@@ -70,8 +70,8 @@ $ ./myzarg --help
 ./myzarg [option]
 
 Options
---help, -h		Show this dialogue
---add, -a  VALUE	Add up numbers
+--help, -h          Show this dialogue
+--add, -a [value]   Add up numbers
 ```
 
 … or

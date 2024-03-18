@@ -49,7 +49,7 @@ void zhelp(Flag flag)
     
     if (flag.type == 1)
     {
-        printf("  VALUE\t");
+        printf(" [value]\t");
     }
     else
     {
