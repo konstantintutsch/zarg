@@ -74,7 +74,7 @@ bool zinit(char **argv,
 {
     Flag help = {"help", 'h', 0, "Show this dialogue"};
 
-    if (flag_count(argv, &help) == 0)
+    if (flag_count(argv, help) == 0)
         return false;
 
     printf("%s [option]\n\nOptions\n", argv[0]);

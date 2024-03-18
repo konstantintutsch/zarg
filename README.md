@@ -39,14 +39,14 @@ int main(int   argc,
          char *argv[])
 {
     /* long, short, type (with/without value), description */
-    Flag plus =    {"add",     'a', 1, "Add up numbers"};
+    Flag plus =    {"add", 'a', 1, "Add up numbers"};
 
     /* argv, Flags, Flag amount */
     if (zinit(argv, (Flag[]){plus}, 1))
         return 0;
 
     int total = 0;
-    char **numbers = flag_value(argv, &plus);
+    char **numbers = flag_value(argv, plus);
 
     for(int i = 0; i < ppclen(numbers); i++)
         total += atoi(numbers[i]);

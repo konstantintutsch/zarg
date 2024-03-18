@@ -5,6 +5,7 @@
 # main
 
 - Automatic help dialogue generation with `zinit()`
+- ⚠️ Pass `Flag` type by value now ([Here's why](https://austinmorlan.com/posts/pass_by_value_vs_pointer/)): e. g. `flag_count(argv, &flag)` -> `flag_count(argv, flag)`
 
 # 0.0.2
 

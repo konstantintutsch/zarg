@@ -12,10 +12,10 @@ typedef struct {
 } Flag;
 
 bool valid_flag(char *argument);
-bool match_flag(char *argument, Flag *flag);
+bool match_flag(char *argument, Flag flag);
 
-int    flag_count(char **arguments, Flag *flag);
-char **flag_value(char **arguments, Flag *flag);
+int    flag_count(char **arguments, Flag flag);
+char **flag_value(char **arguments, Flag flag);
 
 int  ppclen(char **array);
 bool zinit(char **argv, Flag flags[], int length);

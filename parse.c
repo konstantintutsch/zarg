@@ -30,7 +30,7 @@
  */
 
 int flag_count(char **arguments,
-                   Flag  *flag)
+               Flag   flag)
 {
     int amount = 0;
     int length = ppclen(arguments);
@@ -55,7 +55,7 @@ int flag_count(char **arguments,
  */
 
 char **flag_value(char **arguments,
-                      Flag  *flag)
+                  Flag   flag)
 {
     char **values = malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 

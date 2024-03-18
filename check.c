@@ -47,12 +47,12 @@ bool valid_flag(char *argument)
  */
 
 bool match_flag(char *argument,
-                 Flag *flag)
+                 Flag flag)
 {
     if (!valid_flag(argument))
         return false;
 
-    if ((strcmp(argument + 2, flag->name) == 0) || (argument[1] == flag->code))
+    if ((strcmp(argument + 2, flag.name) == 0) || (argument[1] == flag.code))
         return true;
 
     return false;
