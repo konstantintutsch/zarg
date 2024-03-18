@@ -2,6 +2,10 @@
 
 ⚠️  — Breaking change
 
+# main
+
+- Automatic help dialogue generation with `zinit()`
+
 # 0.0.2
 
 - ⚠️ Remove data type conversion

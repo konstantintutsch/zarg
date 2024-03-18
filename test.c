@@ -22,15 +22,10 @@
 int main(int   argc,
          char *argv[])
 {
-    Flag help = {"help",   'h', 0, "Help dialogue"};
     Flag num  = {"number", 'n', 1, "Print number"};
     Flag str  = {"string", 's', 1, "Print string"};
-
-    if (flag_count(argv, &help) > 0)
-    {
-        printf(" --help,\t-h\tThis dialogue\n --number,\t-n\tPass a number\n --string,\t-s\tPass a string\n");
+    if(zinit(argv, (Flag[]){num, str}, 2))
         return 0;
-    }
     
     char **num_list = flag_value(argv, &num);
     for (int i = 0; i < flag_count(argv, &num); i++)

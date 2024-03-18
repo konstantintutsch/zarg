@@ -15,6 +15,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 - Long Flags: Double dash and multiple alphanumeric characters 📍
 - Values: Read strings behind flags and create an array 📊
 - Boolean flags with `flag_count() > 0` ✅/❌
+- Automatically generated help dialogue 📚
 
 ## Table of Contents
 
@@ -37,15 +38,12 @@ How you can use *zarg*.
 int main(int   argc,
          char *argv[])
 {
-              /* long,   short, type (with/without value), description */
-    Flag help = {"help", 'h',   0,                         "Show the applications help dialogue"};
-    Flag plus = {"add",  'a',   1,                         "Add up numbers"};
+    /* long, short, type (with/without value), description */
+    Flag plus =    {"add",     'a', 1, "Add up numbers"};
 
-    if (flag_count(argv, &help) > 0)
-    {
-        printf("[Your help dialogue here]\n");
+    /* argv, Flags, Flag amount */
+    if (zinit(argv, (Flag[]){plus}, 1))
         return 0;
-    }
 
     int total = 0;
     char **numbers = flag_value(argv, &plus);
@@ -69,7 +67,11 @@ Then execute:
 
 ```
 $ ./myzarg --help
-[Your help dialogue here]
+./myzarg [option]
+
+Options
+--help, -h		Show this dialogue
+--add, -a  VALUE	Add up numbers
 ```
 
 … or
