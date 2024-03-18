@@ -11,9 +11,9 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 
 *zarg* aims to be a fast, minimalist and efficient library designed for lightweight applications 🍃
 
-- Short Flags: Dash and single ASCII character ⏱️
-- Long Flags: Double Dash and infinite characters 📍
-- Values: `--example value` 📊
+- Short Flags: Single dash and single alphanumeric character ⏱️
+- Long Flags: Double dash and multiple alphanumeric characters 📍
+- Values: Read strings behind flags and create an array 📊
 - Boolean flags with `flag_count() > 0` ✅/❌
 
 ## Installation
