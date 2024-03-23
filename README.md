@@ -14,7 +14,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 - Short Flags: Single dash and single alphanumeric character ⏱️
 - Long Flags: Double dash and multiple alphanumeric characters 📍
 - Values: Read strings behind flags and create an array 📊
-- Simple boolean flags ✅/❌
+- Simple boolean flags ✅
 - Automatically generated help dialogue 📚
 
 ## Table of Contents
