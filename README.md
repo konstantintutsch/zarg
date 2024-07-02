@@ -75,9 +75,9 @@ $ ./myzarg --help
 ./myzarg [option]
 
 Options
---help, -h          Show this dialogue
---add, -a [value]   Add up numbers
---encourage, -e     Encourage the user
+--help, -h        Show this dialogue
+--add, -a [value] Add up numbers
+--encourage, -e   Encourage the user
 ```
 
 … or

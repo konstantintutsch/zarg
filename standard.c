@@ -18,6 +18,9 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
+
+const char value_text[] = " [value] ";
 
 /**
  * ppclen - Counts how many elements exist in an array of pointers to pointers to characters
@@ -38,29 +41,34 @@ int ppclen(char **array)
 }
 
 /**
- * zhelp - Generate a line from a Flag
+ * gen_flag_help - Generate a line from a Flag
  *
  * @arg1: Flag
+ * @arg2: Furthest required offset of all flags that will be or have been passed
  */
 
-void zhelp(Flag flag)
+void gen_flag_help(Flag flag,
+                   int  furthest_offset)
 {
+    int description_offset = furthest_offset - strlen(flag.name);
+
     printf("--%s, -%c", flag.name, flag.code);
-    
+  
     if (flag.type == 1)
     {
-        printf(" [value]\t");
+        printf(value_text);
+        description_offset -= strlen(value_text);
     }
-    else
-    {
-        printf("\t\t");
-    }
-    
+   
+    // Print necessary offset
+    for (int i = 0; i < description_offset; i++)
+        putchar(' ');
+  
     printf("%s\n", flag.description);
 }
 
 /**
- * zinit - Help dialogue check
+ * zinit - Help dialogue check and preperations for flag line generation
  *
  * @arg1: argv
  * @arg2: Flags
@@ -75,14 +83,26 @@ bool zinit(char **argv,
     Flag help = {"help", 'h', 0, "Show this dialogue"};
 
     if (flag_count(argv, help) == 0)
-        return false;
+        return false; // --help was not issued
 
-    printf("%s [option]\n\nOptions\n", argv[0]);
-    zhelp(help);
+    // Calculate length of longest argument with value_text
+    int furthest_offset = 0;
     for (int i = 0; i < length; i++)
     {
-        zhelp(flags[i]);
+        int buffer = strlen(flags[i].name);
+        if (flags[i].type == 1)
+            buffer += strlen(value_text);
+
+        if (buffer > furthest_offset)
+            furthest_offset = buffer;
     }
 
-    return true;
+    printf("%s [option]\n\nOptions\n", argv[0]);
+    gen_flag_help(help, furthest_offset);
+    for (int i = 0; i < length; i++)
+    {
+        gen_flag_help(flags[i], furthest_offset);
+    }
+
+    return true; // --help was issued
 }

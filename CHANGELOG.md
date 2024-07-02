@@ -2,6 +2,10 @@
 
 ⚠️  — Breaking change
 
+# main
+
+- Manually generate spacing for description in the help dialogue to replaces tabs and avoid visual errors
+
 # 0.0.4
 
 - Replace `  VALUE` with ` [value]` in help dialogue
