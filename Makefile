@@ -13,14 +13,14 @@ INCLUDE_PATH := $(PREFIX)/include/
 build:
 	$(CC) $(CFLAGS) $(LDFLAGS) -o libzarg.so $(SRCS)
 
-install: build
+install:
 	install -d $(LIBRARY_PATH)
 	install -m 644 libzarg.so $(LIBRARY_PATH)
 	install -d $(INCLUDE_PATH)
 	install -m 644 zarg.h $(INCLUDE_PATH)
 	ldconfig
 
-test: install
+test:
 	$(CC) $(CFLAGS) -lzarg -o test test.c
 
 uninstall:
