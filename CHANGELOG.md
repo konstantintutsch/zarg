@@ -2,6 +2,10 @@
 
 ⚠️  — Breaking change
 
+# main
+
+- Generate spacing for help dialogue -> spaces instead of tabs
+
 # 0.0.4
 
 - Replace `  VALUE` with ` [value]` in help dialogue

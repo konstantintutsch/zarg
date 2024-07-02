@@ -18,6 +18,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 /**
  * ppclen - Counts how many elements exist in an array of pointers to pointers to characters
@@ -43,19 +44,28 @@ int ppclen(char **array)
  * @arg1: Flag
  */
 
-void zhelp(Flag flag)
+void zhelp(Flag flag,
+           int  longest_name)
 {
     printf("--%s, -%c", flag.name, flag.code);
-    
+  
     if (flag.type == 1)
     {
-        printf(" [value]\t");
+        printf(" [value] ");
     }
     else
     {
-        printf("\t\t");
+        //     " [value] "
+        printf("         ");
     }
-    
+   
+    // Offset for aligned descriptions
+    int span_argument = longest_name - strlen(flag.name);
+    for (int i = 0; i < span_argument; i++)
+    {
+        printf(" ");
+    }
+  
     printf("%s\n", flag.description);
 }
 
@@ -75,14 +85,24 @@ bool zinit(char **argv,
     Flag help = {"help", 'h', 0, "Show this dialogue"};
 
     if (flag_count(argv, help) == 0)
-        return false;
+        return false; // --help was not issued
 
-    printf("%s [option]\n\nOptions\n", argv[0]);
-    zhelp(help);
+    // Calculate length of longest argument
+    int longest_name = 0;
     for (int i = 0; i < length; i++)
     {
-        zhelp(flags[i]);
+        int buffer = strlen(flags[i].name);
+
+        if (buffer > longest_name)
+            longest_name = buffer;
     }
 
-    return true;
+    printf("%s [option]\n\nOptions\n", argv[0]);
+    zhelp(help, longest_name);
+    for (int i = 0; i < length; i++)
+    {
+        zhelp(flags[i], longest_name);
+    }
+
+    return true; // --help was issued
 }
