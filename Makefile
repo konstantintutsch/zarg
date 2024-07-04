@@ -1,7 +1,7 @@
 CC := LANG=C gcc
 CFLAGS := -O2 -Wall -fstack-protector
 LDFLAGS := -shared -fPIC
-SRCS := $(filter-out test.c, $(wildcard *.c))
+SOURCES := $(filter-out test.c, $(wildcard *.c))
 
 # if PREFIX is not set by the enviroment
 ifeq ($(PREFIX),)
@@ -11,17 +11,18 @@ LIBRARY_PATH := $(PREFIX)/lib/
 INCLUDE_PATH := $(PREFIX)/include/
 
 build:
-	$(CC) $(CFLAGS) $(LDFLAGS) -o libzarg.so $(SRCS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(CURDIR)/libzarg.so $(SOURCES)
 
 install:
 	install -d $(LIBRARY_PATH)
-	install -m 644 libzarg.so $(LIBRARY_PATH)
+	install -m 644 $(CURDIR)/libzarg.so $(LIBRARY_PATH)
 	install -d $(INCLUDE_PATH)
-	install -m 644 zarg.h $(INCLUDE_PATH)
+	install -m 644 $(CURDIR)/zarg.h $(INCLUDE_PATH)
 	ldconfig
 
 test:
-	$(CC) $(CFLAGS) -lzarg -o test test.c
+	$(CC) $(CFLAGS) -lzarg -o $(CURDIR)/test $(CURDIR)/test.c
+	$(CURDIR)/test
 
 uninstall:
 	rm $(LIBRARY_PATH)libzarg.so
@@ -29,5 +30,5 @@ uninstall:
 	ldconfig
 
 clean: uninstall
-	rm libzarg.so
-	rm test
+	rm $(CURDIR)/libzarg.so
+	rm $(CURDIR)/test
