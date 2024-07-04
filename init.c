@@ -68,7 +68,7 @@ bool zinit(char **argv,
         return false; // --help was not issued
 
     // Calculate length of longest argument with value_text
-    int furthest_offset = 0;
+    int furthest_offset = strlen(help.name);
     for (int i = 0; i < length; i++)
     {
         int buffer = strlen(flags[i].name);
