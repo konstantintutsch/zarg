@@ -11,11 +11,11 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 
 *zarg* aims to be a fast, minimalist and efficient library designed for lightweight applications 🍃
 
-- Short Flags: Single dash and single alphanumeric character ⏱️
-- Long Flags: Double dash and multiple alphanumeric characters 📍
-- Values: Read strings behind flags and create an array 📊
-- Simple boolean flags ✅
-- Automatically generated help dialogue 📚
+- short flags: single dash and single alphanumeric character
+- long flags: double dash and multiple alphanumeric characters
+- values: read strings behind flags and create an array
+- simple boolean flags
+- help dialogue generation
 
 ## Table of Contents
 
@@ -102,7 +102,7 @@ A complete list of *zarg*s capabilities is written down in [test.c](/test.c).
 ### Prerequisites
 
 - make (*v4.4+*)
-- gcc (*v13.2+*)
+- gcc (*v14.1+*)
 
 ### Compiling
 
