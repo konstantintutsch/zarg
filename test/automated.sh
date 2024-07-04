@@ -36,7 +36,8 @@ check "long flag" "--value 'long flag'"
 # Boolean Flags
 check "passed" "-b"
 check "passed" "--boolean"
+## Opposite (Flag not passed)
+check "" ""
 
-check $'' ""
-
+# Finished
 echo "All checks passed. Success 🟢"
