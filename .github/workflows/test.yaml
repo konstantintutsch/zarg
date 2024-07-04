@@ -2,7 +2,7 @@ name: test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "actions-test-compile-experiment" ]
   pull_request:
     branches: [ "main" ]
 
