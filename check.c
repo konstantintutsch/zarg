@@ -47,7 +47,7 @@ bool valid_flag(char *argument)
  */
 
 bool match_flag(char *argument,
-                 Flag flag)
+                Flag flag)
 {
     if (!valid_flag(argument))
         return false;
