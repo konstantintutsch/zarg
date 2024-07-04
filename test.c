@@ -22,8 +22,8 @@
 int main(int   argc,
          char *argv[])
 {
-    Flag num  = {"number", 'n', 1, "Print number"};
-    Flag str  = {"string", 's', 1, "Print string"};
+    Flag num  = {"number", 'n', true, "Print number"};
+    Flag str  = {"string", 's', true, "Print string"};
     if(zinit(argv, (Flag[]){num, str}, 2))
         return 0;
     

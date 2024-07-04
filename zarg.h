@@ -7,7 +7,7 @@
 typedef struct {
     char *name;
     char  code;
-    int   type; /* 0: boolean, 1: with value */
+    bool  value; /* false: boolean (no value passed after flag), 1: with value */
     char *description;
 } Flag;
 

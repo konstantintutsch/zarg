@@ -39,8 +39,8 @@ int main(int   argc,
          char *argv[])
 {
     /* long, short, type (with/without value), description */
-    Flag plus = {"add", 'a', 1, "Add up numbers"};
-    Flag encourage = {"encourage", 'e', 0, "Encourage the user"};
+    Flag plus = {"add", 'a', true, "Add up numbers"};
+    Flag encourage = {"encourage", 'e', false, "Encourage the user"};
 
     /* Help dialogue check, exit */
     if (zinit(argv, (Flag[]){plus,encourage}, 2))
