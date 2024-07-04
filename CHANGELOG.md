@@ -2,7 +2,7 @@
 
 ⚠️  — Breaking change
 
-# main
+# 0.1.1
 
 - Add minimum offset of 1 between flags and their description
 
