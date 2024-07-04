@@ -2,7 +2,7 @@
 
 ⚠️  — Breaking change
 
-# main
+# 0.1.0
 
 - Manually generate spacing for description in the help dialogue to replaces tabs and avoid visual errors
 - ⚠️ Move int Flag.type to bool Flag.value: name and data type change in struct Flag
