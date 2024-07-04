@@ -11,10 +11,14 @@ check() {
     FLAGS="${2}"
 
     OUTPUT=$(eval "${BASE} ${FLAGS}")
+    
+    # Hash for multiline string comparison support
+    HASH_EXPECTED="$(md5sum <<<${EXPECTED})"
+    HASH_OUTPUT="$(md5sum <<<${OUTPUT})"
 
     printf "[CHECK] "
 
-    if [[ ${OUTPUT} == ${EXPECTED} ]]
+    if [[ ${HASH_OUTPUT} == ${HASH_EXPECTED} ]]
     then
         echo "Success"
         RESULT=0
@@ -28,6 +32,16 @@ check() {
 
     return ${RESULT}
 }
+
+# Help
+HELP="./base [option]
+
+Options
+--help, -h          Show this dialogue
+--value, -v [value] A flag accepting a value
+--boolean, -b       A flag not reading a value"
+check "${HELP}" "-h"
+check "${HELP}" "--help"
 
 # Value Flags
 check "short flag" "-v 'short flag'"
