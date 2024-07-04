@@ -54,7 +54,7 @@ void gen_flag_help(Flag flag,
 
     printf("--%s, -%c", flag.name, flag.code);
   
-    if (flag.type == 1)
+    if (flag.value == true)
     {
         printf(value_text);
         description_offset -= strlen(value_text);
@@ -80,7 +80,7 @@ bool zinit(char **argv,
            Flag   flags[],
            int    length)
 {
-    Flag help = {"help", 'h', 0, "Show this dialogue"};
+    Flag help = {"help", 'h', false, "Show this dialogue"};
 
     if (flag_count(argv, help) == 0)
         return false; // --help was not issued
@@ -90,7 +90,7 @@ bool zinit(char **argv,
     for (int i = 0; i < length; i++)
     {
         int buffer = strlen(flags[i].name);
-        if (flags[i].type == 1)
+        if (flags[i].value == true)
             buffer += strlen(value_text);
 
         if (buffer > furthest_offset)
