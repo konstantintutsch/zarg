@@ -4,7 +4,7 @@
 
 # main
 
-- Generate spacing for help dialogue -> spaces instead of tabs
+- Manually generate spacing for description in the help dialogue to replaces tabs and avoid visual errors
 
 # 0.0.4
 
