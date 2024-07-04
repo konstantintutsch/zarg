@@ -138,7 +138,7 @@ Build the base binary using the `build` make rule.
 $ make build
 ```
 
-Now run the automated test script
+Now run the automated testing script
 
 ```
 $ ./automated.sh
