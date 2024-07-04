@@ -14,28 +14,32 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <zarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "zarg.h"
 
 int main(int   argc,
          char *argv[])
 {
-    Flag num  = {"number", 'n', true, "Print number"};
-    Flag str  = {"string", 's', true, "Print string"};
-    if(zinit(argv, (Flag[]){num, str}, 2))
+    Flag with = {"value", 'v', true, "A flag accepting a value"};
+    Flag without = {"boolean", 'b', false, "A flag not reading a value"};
+
+    if (zinit(argv, (Flag[]){with, without}, 2))
         return 0;
-    
-    char **num_list = flag_value(argv, num);
-    for (int i = 0; i < ppclen(num_list); i++)
-        printf("Number %d: %d\n", i, atoi(num_list[i]));
-    free(num_list);
-    
-    char **str_list = flag_value(argv, str);
-    for (int i = 0; i < ppclen(str_list); i++)
-        printf("String %d: %s\n", i, str_list[i]);
-    free(str_list);
+
+    /**
+     * Test for Flag.value = true (with)
+     */
+    char **values = flag_value(argv, with);
+    for(int i = 0; i < ppclen(values); i++)
+        printf("%s\n", values[i]);
+    free(values);
+
+    /**
+     * Test for Flag.value = false (without)
+     */
+    if (flag_count(argv, without) > 0)
+        printf("passed\n");
 
     return 0;
 }

@@ -1,7 +1,7 @@
 CC := LANG=C gcc
 CFLAGS := -O2 -Wall -fstack-protector
 LDFLAGS := -shared -fPIC
-SOURCES := $(filter-out test.c, $(wildcard *.c))
+SOURCES := $(wildcard *.c)
 
 # if PREFIX is not set by the enviroment
 ifeq ($(PREFIX),)
@@ -20,10 +20,6 @@ install:
 	install -m 644 $(CURDIR)/zarg.h $(INCLUDE_PATH)
 	ldconfig
 
-test:
-	$(CC) $(CFLAGS) -lzarg -o $(CURDIR)/test $(CURDIR)/test.c
-	$(CURDIR)/test
-
 uninstall:
 	rm $(LIBRARY_PATH)libzarg.so
 	rm $(INCLUDE_PATH)zarg.h
@@ -31,4 +27,3 @@ uninstall:
 
 clean: uninstall
 	rm $(CURDIR)/libzarg.so
-	rm $(CURDIR)/test

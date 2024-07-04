@@ -95,8 +95,6 @@ Your numbers sum up to 42!
 Great job! That's how one should pass command line arguments!
 ```
 
-A complete list of *zarg*s capabilities is written down in [test.c](/test.c).
-
 ## Installation
 
 ### Prerequisites
@@ -128,10 +126,26 @@ Execute the `uninstall` rule with root privileges to completely remove libzarg f
 
 ## Testing
 
-Follow the installation steps first. Once finished, use the `test` make rule to compile the test application.
+Follow the installation instructions. Once finished, enter the [test](/test) directory.
 
 ```
-$ make test
+$ cd ./test
 ```
 
-To get started, execute `./test --help`.
+Build the base binary using the `build` make rule.
+
+```
+$ make build
+```
+
+Now run the automated test script
+
+```
+$ ./automated.sh
+```
+
+… or test manually.
+
+```
+$ ./base --help
+```

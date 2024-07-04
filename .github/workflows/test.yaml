@@ -20,5 +20,11 @@ jobs:
     - name: Install
       run: sudo make install
 
+    - name: Test
+      run: |
+        cd ./test
+        make build
+        ./automated.sh
+
     - name: Uninstall
       run: sudo make uninstall
