@@ -2,6 +2,10 @@
 
 ⚠️  — Breaking change
 
+# main
+
+- Add minimum offset of 1 between flags and their description
+
 # 0.1.0
 
 - Manually generate spacing for description in the help dialogue to replaces tabs and avoid visual errors

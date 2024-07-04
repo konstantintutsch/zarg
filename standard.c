@@ -20,7 +20,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-const char value_text[] = " [value] ";
+const char value_text[] = " [value]";
 
 /**
  * ppclen - Counts how many elements exist in an array of pointers to pointers to characters
@@ -96,6 +96,7 @@ bool zinit(char **argv,
         if (buffer > furthest_offset)
             furthest_offset = buffer;
     }
+    furthest_offset++; // Minimum offset = 1
 
     printf("%s [option]\n\nOptions\n", argv[0]);
     gen_flag_help(help, furthest_offset);
