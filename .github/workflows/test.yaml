@@ -23,7 +23,7 @@ jobs:
     - name: Test
       run: |
         cd ./test
-        gcc main.c -o base -lzarg
+        make build
         ./automated.sh
 
     - name: Uninstall
