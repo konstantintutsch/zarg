@@ -11,7 +11,7 @@ LIBRARY_PATH := $(PREFIX)/lib/
 INCLUDE_PATH := $(PREFIX)/include/
 
 build:
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(CURDIR)/libzarg.so $(SOURCES)
+	$(CC) $(CFLAGS) -o $(CURDIR)/libzarg.so $(SOURCES) $(LDFLAGS)
 
 install:
 	install -d $(LIBRARY_PATH)

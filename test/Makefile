@@ -1,7 +1,7 @@
 CC := LANG=C gcc
 CFLAGS := -O2 -Wall -fstack-protector
-LDFLAGS := -fPIC -lzarg
-SOURCES := $(wildcard *.c)
+LDFLAGS := -lzarg
+SOURCES := main.c
 
 build:
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $(CURDIR)/base $(SOURCES)
+	$(CC) $(CFLAGS) -o $(CURDIR)/base $(SOURCES) $(LDFLAGS)
