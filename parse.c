@@ -57,6 +57,9 @@ int flag_count(char **arguments,
 char **flag_value(char **arguments,
                   Flag   flag)
 {
+    if (flag.value == false)
+        return (char **)malloc(0);
+
     char **values = malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 
     int length = ppclen(arguments);
