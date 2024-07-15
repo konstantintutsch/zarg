@@ -19,17 +19,17 @@ void gen_flag_help(Flag flag,
     int description_offset = furthest_offset - strlen(flag.name);
 
     printf("--%s, -%c", flag.name, flag.code);
-  
+
     if (flag.value == true)
     {
         printf(value_text);
         description_offset -= strlen(value_text);
     }
-   
+
     // Print necessary offset
     for (int i = 0; i < description_offset; i++)
         putchar(' ');
-  
+
     printf("%s\n", flag.description);
 }
 
@@ -44,7 +44,7 @@ void gen_flag_help(Flag flag,
 
 bool zinit(char **argv,
            Flag   flags[],
-           int    length)
+           int    length) //TODO: Remove this parameter and calculate the length of flags[] in this function
 {
     Flag help = {"help", 'h', false, "Show this dialogue"};
 
