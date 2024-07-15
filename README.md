@@ -33,21 +33,19 @@ How you can use *zarg*.
 int main(int   argc,
          char *argv[])
 {
-    /* long, short, type (with/without value), description */
-    Flag plus = {"add", 'a', true, "Add up numbers"};
+    Flag plus = {"add", 'a', true, "Add up numbers"}; // long flag, short flag, flag that accepts a value?, description of flag
     Flag encourage = {"encourage", 'e', false, "Encourage the user"};
 
-    /* Help dialogue check, exit */
-    if (zinit(argv, (Flag[]){plus,encourage}, 2))
+    if (zinit(argv, (Flag[]){plus,encourage}, 2)) // argv, Flags[], number of Flags[]
         return 0;
 
     int total = 0;
     char **numbers = flag_value(argv, plus);
 
-    for(int i = 0; i < ppclen(numbers); i++) /* DO NOT use flag_count(argv, plus) */
+    for(int i = 0; i < ppclen(numbers); i++) /* Do not use flag_count() here, this will inevitably lead to a memory leak. */
         total += atoi(numbers[i]);
 
-    free(numbers);
+    free(numbers); // Always call free on the return value of flag_value().
     printf("Your numbers sum up to %d!\n", total);
 
     if (flag_count(argv, encourage) > 0)
