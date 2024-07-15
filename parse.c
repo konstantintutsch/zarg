@@ -31,6 +31,7 @@ int flag_count(char **arguments,
 /**
  * flag_value - Filter out values from command line arguments
  *              e. g. `-d ./src`,`--directory ./lib` -> `./src`,`./lib`
+ *              free() has to be called on the return value
  *
  * @arg1: Arguments
  * @arg2: Type
@@ -44,6 +45,7 @@ char **flag_value(char **arguments,
     if (flag.value == false)
         return (char **)malloc(0);
 
+    // TODO: Find an alternative to malloc() here so the function user does not need to call free()
     char **values = malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 
     int length = ppclen(arguments);
