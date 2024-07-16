@@ -4,10 +4,9 @@
 
 /**
  * ppclen - Counts how many elements exist in an array of pointers to pointers to characters
+ * @arg1 - Array of strings with last element equal to NULL
  *
- * @arg1: Array
- *
- * @return: Counted elements
+ * Return: The number of elements
  */
 
 int ppclen(char **array)

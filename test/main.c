@@ -2,6 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - Entry point of program
+ *        Also contains all possible use cases of zarg
+ *
+ * Return: 0 Successful
+ */
+
 int main(int   argc,
          char *argv[])
 {

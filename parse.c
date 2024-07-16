@@ -5,12 +5,11 @@
 #include <string.h>
 
 /**
- * flag_count - Count how many arguments of a given type exist
+ * flag_count - Count how many arguments of a given flag were passed
+ * @arg1 - Arguments as an array of strings
+ * @arg2 - Flag
  *
- * @arg1: Arguments
- * @arg2: Type
- *
- * @return: Amount
+ * Return: The number of flags
  */
 
 int flag_count(char **arguments,
@@ -29,14 +28,12 @@ int flag_count(char **arguments,
 }
 
 /**
- * flag_value - Filter out values from command line arguments
- *              e. g. `-d ./src`,`--directory ./lib` -> `./src`,`./lib`
+ * flag_value - Read and filter values from command line arguments
  *              free() has to be called on the return value
+ * @arg1 - Arguments with values as an array of strings, e. g. ["--directory ./src", "--notdirectory ./file.txt"]
+ * @arg2 - Flag, e. g. (Flag){"directory", …}
  *
- * @arg1: Arguments
- * @arg2: Type
- *
- * @return: Values
+ * Return: Values, e. g. ["./src"]
  */
 
 char **flag_value(char **arguments,
@@ -59,7 +56,7 @@ char **flag_value(char **arguments,
         if (!match_flag(arguments[i], flag))
             continue;
 
-        /* Value was not set */
+        // Value was not set
         if (i + 1 == length)
             continue;
         if (valid_flag(arguments[i + 1]))

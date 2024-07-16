@@ -7,10 +7,9 @@
 const char value_text[] = " [value]";
 
 /**
- * gen_flag_help - Generate a line from a Flag
- *
- * @arg1: Flag
- * @arg2: Furthest required offset of all flags that will be or have been passed
+ * gen_flag_help - Generate a help dialogue line for a flag
+ * @arg1 - Flag
+ * @arg2 - Furthest required offset of all flags that will be or have been passed
  */
 
 void gen_flag_help(Flag flag,
@@ -34,12 +33,12 @@ void gen_flag_help(Flag flag,
 }
 
 /**
- * zinit - Help dialogue check and preperations for flag line generation
+ * zinit - Check wether to display the help dialogue and generate it if necessary
+ * @arg1 - Arguments (always argv from main)
+ * @arg2 - Flags
  *
- * @arg1: argv
- * @arg2: Flags
- *
- * @return: Exit/Continue
+ * Return: false No help dialogue was printed
+ *         true  The help dialogue was printed, exit the program
  */
 
 bool zinit(char **argv,

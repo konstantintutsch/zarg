@@ -6,12 +6,18 @@ set -e
 # Executable used for testing
 BASE="$(dirname ${0})/base"
 
+# check - Compare expected output and actual output of command
+# @arg1 - Expected output as string
+# @arg2 - Flags to append to BASE to assemble command
+#
+# Return: 0 Expected and actual output match
+#         1 Expected does not match actual output
 check() {
     EXPECTED="${1}"
     FLAGS="${2}"
 
     OUTPUT=$(eval "${BASE} ${FLAGS}")
-    
+
     # Hash for multiline string comparison support
     HASH_EXPECTED="$(md5sum <<<${EXPECTED})"
     HASH_OUTPUT="$(md5sum <<<${OUTPUT})"

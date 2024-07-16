@@ -3,11 +3,11 @@
 #include <string.h>
 
 /**
- * valid_flag - Check if string is a command line flag
+ * valid_flag - Validate a string as a flag
+ * @arg1 - Argument as a string
  *
- * @arg1: Argument
- *
- * @return: Yes/No
+ * Return: false Invalid
+ *         true  Valid
  */
 
 bool valid_flag(char *argument)
@@ -22,12 +22,12 @@ bool valid_flag(char *argument)
 }
 
 /**
- * match_flag - Check if string is argument flag
+ * match_flag - Compare a string and a flag
+ * @arg1 - Argument as a string
+ * @arg2 - Flag
  *
- * @arg1: Argument
- * @arg2: Flag
- *
- * @return: Yes/No
+ * Return: false argument != flag
+ *         true  argument == flag
  */
 
 bool match_flag(char *argument,
@@ -41,5 +41,3 @@ bool match_flag(char *argument,
 
     return false;
 }
-
-

@@ -20,6 +20,7 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
   - [Compiling](#compiling)
 - [Removal](#removal)
 - [Testing](#testing)
+- [Documentation](#documentation)
 
 ## Example
 
@@ -40,12 +41,12 @@ int main(int   argc,
         return 0;
 
     int total = 0;
-    char **numbers = flag_value(argv, plus);
 
+    char **numbers = flag_value(argv, plus);
     for(int i = 0; i < ppclen(numbers); i++) /* Do not use flag_count() here, this will inevitably lead to a memory leak. */
         total += atoi(numbers[i]);
-
     free(numbers); // Always call free on the return value of flag_value().
+
     printf("Your numbers sum up to %d!\n", total);
 
     if (flag_count(argv, encourage) > 0)
@@ -142,3 +143,11 @@ $ ./automated.sh
 ```
 $ ./base --help
 ```
+
+## Documentation
+
+To better understand functions and code provided by this library, start reading [zarg.h](/zarg.h) to locate a function in the source code.
+
+Then, enter the file containing the function you're interested in and read the comment explaining it's purpose, arguments and return values. This comment is always located above the definition of the function.
+
+These comments also contain best practices for handling return values of the function, if available.

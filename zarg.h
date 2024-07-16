@@ -7,17 +7,22 @@
 typedef struct {
     char *name;
     char  code;
-    bool  value; /* false: boolean (no value passed after flag), 1: with value */
+    bool  value; // false: boolean (no value passed after flag), true: with value
     char *description;
 } Flag;
 
+// init.c
+bool zinit(char **argv, Flag flags[], int length);
+
+// check.c
 bool valid_flag(char *argument);
 bool match_flag(char *argument, Flag flag);
 
+// parse.c
 int    flag_count(char **arguments, Flag flag);
 char **flag_value(char **arguments, Flag flag);
 
+// tools.c
 int  ppclen(char **array);
-bool zinit(char **argv, Flag flags[], int length);
 
 #endif
