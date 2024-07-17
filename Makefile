@@ -10,6 +10,9 @@ endif
 LIBRARY_PATH := $(PREFIX)/lib/
 INCLUDE_PATH := $(PREFIX)/include/
 
+format:
+	indent $(SOURCES) $(wildcard *.h) -linux -nut -i4
+
 build:
 	$(CC) $(CFLAGS) -o $(CURDIR)/libzarg.so $(SOURCES) $(LDFLAGS)
 

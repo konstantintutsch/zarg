@@ -6,8 +6,8 @@
 
 typedef struct {
     char *name;
-    char  code;
-    bool  value; // false: boolean (no value passed after flag), true: with value
+    char code;
+    bool value;                 // false: boolean (no value passed after flag), true: with value
     char *description;
 } Flag;
 
@@ -19,10 +19,10 @@ bool valid_flag(char *argument);
 bool match_flag(char *argument, Flag flag);
 
 // parse.c
-int    flag_count(char **arguments, Flag flag);
+int flag_count(char **arguments, Flag flag);
 char **flag_value(char **arguments, Flag flag);
 
 // tools.c
-int  ppclen(char **array);
+int ppclen(char **array);
 
 #endif

@@ -12,14 +12,12 @@
  * Return: The number of flags
  */
 
-int flag_count(char **arguments,
-               Flag   flag)
+int flag_count(char **arguments, Flag flag)
 {
     int amount = 0;
     int length = ppclen(arguments);
 
-    for (int i = 1; i < length; i++)
-    {
+    for (int i = 1; i < length; i++) {
         if (match_flag(arguments[i], flag))
             amount++;
     }
@@ -36,20 +34,19 @@ int flag_count(char **arguments,
  * Return: Values, e. g. ["./src"]
  */
 
-char **flag_value(char **arguments,
-                  Flag   flag)
+char **flag_value(char **arguments, Flag flag)
 {
     if (flag.value == false)
         return (char **)malloc(0);
 
     // TODO: Find an alternative to malloc() here so the function user does not need to call free()
-    char **values = malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
+    char **values =
+        malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 
     int length = ppclen(arguments);
     int write = 0;
 
-    for (int i = 0; i < length; i++)
-    {
+    for (int i = 0; i < length; i++) {
         if (!valid_flag(arguments[i]))
             continue;
 

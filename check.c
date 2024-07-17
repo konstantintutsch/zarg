@@ -30,8 +30,7 @@ bool valid_flag(char *argument)
  *         true  argument == flag
  */
 
-bool match_flag(char *argument,
-                Flag flag)
+bool match_flag(char *argument, Flag flag)
 {
     if (!valid_flag(argument))
         return false;
