@@ -40,3 +40,29 @@ bool match_flag(char *argument, Flag flag)
 
     return false;
 }
+
+/**
+ * compare_flag - Compare two Flag structs
+ * @arg1 - First flag to compare with
+ * @arg2 - Second flag to compare with
+ *
+ * Return: false Flags do not match
+ *         true  Flags match
+ */
+
+bool compare_flag(Flag first, Flag second)
+{
+    if (strcmp(first.name, second.name))
+        return false;
+
+    if (first.code != second.code)
+        return false;
+
+    if (first.value != second.value)
+        return false;
+
+    if (strcmp(first.description, second.description))
+        return false;
+
+    return true;
+}

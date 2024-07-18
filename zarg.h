@@ -17,6 +17,7 @@ bool zinit(char **argv, Flag flags[], int length);
 // check.c
 bool valid_flag(char *argument);
 bool match_flag(char *argument, Flag flag);
+bool compare_flag(Flag first, Flag second);
 
 // parse.c
 int flag_count(char **arguments, Flag flag);
