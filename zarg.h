@@ -2,6 +2,8 @@
 
 #include <stdbool.h>
 
+#define _FLAG (Flag){"", 0, false, ""}
+
 #define ZARG_H
 
 typedef struct {
@@ -25,5 +27,6 @@ char **flag_value(char **arguments, Flag flag);
 
 // tools.c
 int ppclen(char **array);
+int arflen(Flag array[]);
 
 #endif

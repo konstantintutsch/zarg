@@ -18,3 +18,20 @@ int ppclen(char **array)
 
     return (count);
 }
+
+/**
+ * arflen - Counts how many elements exist in an array of Flags
+ * @arg1 - Array of Flags with last element equal to _FLAG
+ *
+ * Return: The number of elements
+ */
+
+int arflen(Flag array[])
+{
+    int count = 0;
+
+    while (!compare_flag(array[count], _FLAG))
+        count++;
+
+    return (count);
+}

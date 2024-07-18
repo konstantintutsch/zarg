@@ -5,6 +5,10 @@
 # main
 
 -   Add `compare_flag()`
+-   Add `_FLAG`
+-   Add `arflen()`
+-   From now on, arrays of Flag structs should look like this: `{yourflag, yourotherflag, _FLAG}`. The `_FLAG` marks the end of the array.
+-   You can use `arflen()` to get the number of elements of this array.
 
 # 0.1.1
 
