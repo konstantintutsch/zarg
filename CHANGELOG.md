@@ -2,7 +2,7 @@
 
 ⚠️ — Breaking change
 
-# main
+# 0.1.2
 
 -   Add `compare_flag()`
 -   Add `_FLAG`
