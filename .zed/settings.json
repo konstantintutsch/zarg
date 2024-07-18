@@ -1,0 +1,26 @@
+{
+    "file_types": {
+        "C": ["*.h"]
+    },
+    "languages": {
+        "C": {
+            "formatter": {
+                "external": {
+                    "command": "indent",
+                    "arguments": [
+                        "-",
+                        "-linux",
+                        "-nut",
+                        "-i4",
+                        "-o",
+                        "/dev/stdout"
+                    ]
+                }
+            }
+        }
+    },
+    "format_on_save": "on",
+    "remove_trailing_whitespace_on_save": true,
+    "ensure_final_newline_on_save": true,
+    "tab_size": 4
+}
