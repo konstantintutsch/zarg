@@ -9,6 +9,8 @@
 -   Add `arflen()`
 -   From now on, arrays of Flag structs should look like this: `{yourflag, yourotherflag, _FLAG}`. The `_FLAG` marks the end of the array.
 -   You can use `arflen()` to get the number of elements of this array.
+-   ⚠️ Remove parameter `int length` from `zinit()`
+-   ⚠️ `zinit()`'s array of Flag structs parameter now needs `_FLAG` as it's last element
 
 # 0.1.1
 

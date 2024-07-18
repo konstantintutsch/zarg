@@ -37,10 +37,10 @@ int main(int argc, char *argv[])
     Flag plus = { "add", 'a', true, "Add up numbers" };
     Flag encourage = { "encourage", 'e', false, "Encourage the user" };
 
-    // argv, Flags[], number of Flags[]
+    // argv, Flags[]: the last element in this array has to be the macro _FLAG to mark the end of the array
     if (zinit(argv, (Flag[]) {
-              plus, encourage}
-              , 2))
+              plus, encourage, _FLAG}
+        ))
         return 0;
 
     int total = 0;

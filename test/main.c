@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
     Flag without = { "boolean", 'b', false, "A flag not reading a value" };
 
     if (zinit(argv, (Flag[]) {
-              with, without}
-              , 2))
+              with, without, _FLAG}
+        ))
         return 0;
 
     /**

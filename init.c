@@ -39,12 +39,14 @@ void gen_flag_help(Flag flag, int furthest_offset)
  *         true  The help dialogue was printed, exit the program
  */
 
-bool zinit(char **argv, Flag flags[], int length)       // TODO: Remove the length parameter and calculate it in this function
+bool zinit(char **argv, Flag flags[])
 {
     Flag help = { "help", 'h', false, "Show this dialogue" };
 
     if (flag_count(argv, help) == 0)
         return false;           // --help was not issued
+
+    int length = arflen(flags);
 
     // Calculate length of longest argument with value_text
     int furthest_offset = strlen(help.name);

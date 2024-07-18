@@ -14,7 +14,7 @@ typedef struct {
 } Flag;
 
 // init.c
-bool zinit(char **argv, Flag flags[], int length);
+bool zinit(char **argv, Flag flags[]);
 
 // check.c
 bool valid_flag(char *argument);
