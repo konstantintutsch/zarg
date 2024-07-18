@@ -6,7 +6,7 @@ Thank you for investing your time to improve this project.
 
 Found a bug? Just open an issue in [GitHub](https://github.com/konstantintutsch/zarg/issues)'s or [Codeberg](https://codeberg.org/konstantintutsch/zarg/issues)'s bug tracker.
 
-Make sure to describe the idea or the problem you've experienced in detail. Thank you!
+Make sure to describe the idea you've had or the problem you've experienced in detail. Thank you!
 
 ## Code
 

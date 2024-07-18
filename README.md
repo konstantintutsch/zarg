@@ -4,53 +4,57 @@ A minimalist C library for standardi**z**ed handling of command line **arg**umen
 
 ## Features
 
-*zarg* aims to be a fast, minimalist and efficient library designed for lightweight applications 🍃
+_zarg_ aims to be a fast, minimalist and efficient library designed for lightweight applications 🍃
 
-- short flags: single dash and single alphanumeric character
-- long flags: double dash and multiple alphanumeric characters
-- values: read strings behind flags and create an array
-- simple boolean flags
-- help dialogue generation
+-   short flags: single dash and single alphanumeric character
+-   long flags: double dash and multiple alphanumeric characters
+-   values: read strings behind flags and create an array
+-   simple boolean flags
+-   help dialogue generation
 
 ## Table of Contents
 
-- [Example](#example)
-- [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Compiling](#compiling)
-- [Removal](#removal)
-- [Testing](#testing)
-- [Documentation](#documentation)
+-   [Example](#example)
+-   [Installation](#installation)
+    -   [Prerequisites](#prerequisites)
+    -   [Compiling](#compiling)
+-   [Removal](#removal)
+-   [Testing](#testing)
+-   [Documentation](#documentation)
 
 ## Example
 
-How you can use *zarg*.
+How you can use _zarg_.
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <zarg.h>
 
-int main(int   argc,
-         char *argv[])
+int main(int argc, char *argv[])
 {
-    Flag plus = {"add", 'a', true, "Add up numbers"}; // long flag, short flag, flag that accepts a value?, description of flag
-    Flag encourage = {"encourage", 'e', false, "Encourage the user"};
+    // long flag, short flag, flag that accepts a value?, description of flag
+    Flag plus = { "add", 'a', true, "Add up numbers" };
+    Flag encourage = { "encourage", 'e', false, "Encourage the user" };
 
-    if (zinit(argv, (Flag[]){plus,encourage}, 2)) // argv, Flags[], number of Flags[]
+    // argv, Flags[], number of Flags[]
+    if (zinit(argv, (Flag[]) {
+              plus, encourage}
+              , 2))
         return 0;
 
     int total = 0;
 
     char **numbers = flag_value(argv, plus);
-    for(int i = 0; i < ppclen(numbers); i++) /* Do not use flag_count() here, this will inevitably lead to a memory leak. */
+    for (int i = 0; i < ppclen(numbers); i++)   // Do not use flag_count() here, this will inevitably lead to a memory leak.
         total += atoi(numbers[i]);
-    free(numbers); // Always call free on the return value of flag_value().
+    free(numbers);              // Always call free() on the return of flag_value()
 
     printf("Your numbers sum up to %d!\n", total);
 
     if (flag_count(argv, encourage) > 0)
-        printf("Great job! That's how one should pass command line arguments!\n");
+        printf
+            ("Great job! That's how one should pass command line arguments!\n");
 
     return 0;
 }
@@ -93,8 +97,8 @@ Great job! That's how one should pass command line arguments!
 
 ### Prerequisites
 
-- make (*v4.4+*)
-- gcc (*v14.1+*)
+-   make (_v4.4+_)
+-   gcc (_v14.1+_)
 
 ### Compiling
 
