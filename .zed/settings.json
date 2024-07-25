@@ -7,14 +7,7 @@
             "formatter": {
                 "external": {
                     "command": "indent",
-                    "arguments": [
-                        "-",
-                        "-linux",
-                        "-nut",
-                        "-i4",
-                        "-o",
-                        "/dev/stdout"
-                    ]
+                    "arguments": ["-", "-linux", "-nut", "-i4", "-st"]
                 }
             }
         }
