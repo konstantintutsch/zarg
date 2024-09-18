@@ -102,7 +102,7 @@ Great job! That's how one should pass command line arguments!
 
 ### Compiling
 
-To compile libzarg, execute the `build` make rule.
+To compile libzarg using make.
 
 ```
 $ make build/libzarg.so
@@ -124,13 +124,7 @@ Execute the `uninstall` rule with root privileges to completely remove libzarg f
 
 ## Testing
 
-Follow the installation instructions. Once finished, enter the [test](/test) directory.
-
-```
-$ cd ./test
-```
-
-Build the base binary using the `build` make rule.
+Follow the installation instructions. Once finished, build the base testing binary using make.
 
 ```
 $ make build/test
