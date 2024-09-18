@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4.1.1
 
     - name: Build
-      run: make build
+      run: make build/libzarg.so
 
     - name: Install
       run: sudo make install
@@ -23,7 +23,7 @@ jobs:
     - name: Test
       run: |
         cd ./test
-        make build
+        make ../build/test
         ./automated.sh
 
     - name: Uninstall

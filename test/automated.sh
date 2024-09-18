@@ -4,7 +4,7 @@
 set -e
 
 # Executable used for testing
-BASE="$(dirname ${0})/base"
+BASE="$(dirname ${0})/../build/test"
 
 # check - Compare expected output and actual output of command
 # @arg1 - Expected output as string
@@ -40,7 +40,7 @@ check() {
 }
 
 # Help
-HELP="./base [option]
+HELP="${BASE} [option]
 
 Options
 --help, -h          Show this dialogue

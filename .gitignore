@@ -1,4 +1,2 @@
-libzarg.so
-test/base
-rpmbuild
+build
 *~

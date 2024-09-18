@@ -1,10 +1,46 @@
-CC := LANG=C gcc
+#
+# Files
+#
+
+SOURCES := $(wildcard *.c)
+
+BUILDDIR := ../build
+EXECUTABLE := test
+
+#
+# Compilers
+#
+
+CC := gcc
 CFLAGS := -O2 -Wall -fstack-protector
-LDFLAGS := -lzarg
-SOURCES := main.c
+
+LDFLAGS := -fPIC -lzarg
+
+#
+# Targets not producing output files
+#
+
+.PHONY: format clean run
+
+#
+# Build
+#
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
+
+$(BUILDDIR)/$(EXECUTABLE): $(BUILDDIR) $(SOURCES)
+	$(CC) $(CFLAGS) -o $@ $(SOURCES) $(LDFLAGS)
+
+#
+# Utilities
+#
 
 format:
-	indent $(SOURCES) -linux -nut -i4
+	indent $(SOURCES) $(wildcard *.h) -linux -nut -i4
 
-build:
-	$(CC) $(CFLAGS) -o $(CURDIR)/base $(SOURCES) $(LDFLAGS)
+run: $(BUILDDIR)/$(EXECUTABLE)
+	./$^
+
+clean: $(BUILDDIR)
+	rm -r $^
