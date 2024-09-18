@@ -5,7 +5,7 @@
 SOURCES := $(wildcard *.c)
 
 BUILDDIR := build
-EXECUTABLE := libzarg.so
+SHAREDOBJECT := libzarg.so
 
 ifeq ($(PREFIX),) # $(PREFIX) is empty or unset
 	PREFIX := /usr
@@ -35,11 +35,11 @@ LDFLAGS := -shared -fPIC
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
-$(BUILDDIR)/$(EXECUTABLE): $(BUILDDIR) $(SOURCES)
+$(BUILDDIR)/$(SHAREDOBJECT): $(BUILDDIR) $(SOURCES)
 	$(CC) $(CFLAGS) -o $@ $(SOURCES) $(LDFLAGS)
 
 
-install: $(BUILDDIR)/$(EXECUTABLE)
+install: $(BUILDDIR)/$(SHAREDOBJECT)
 	install -d $(LIBRARY_PATH)
 	install -m 644 $^ $(LIBRARY_PATH)
 	install -d $(INCLUDE_PATH)
@@ -47,7 +47,7 @@ install: $(BUILDDIR)/$(EXECUTABLE)
 	ldconfig
 
 uninstall:
-	rm $(LIBRARY_PATH)$(EXECUTABLE)
+	rm $(LIBRARY_PATH)$(SHAREDOBJECT)
 	rm $(INCLUDE_PATH)zarg.h
 	ldconfig
 
@@ -57,9 +57,6 @@ uninstall:
 
 format:
 	indent $(SOURCES) $(wildcard *.h) -linux -nut -i4
-
-run: $(BUILDDIR)/$(EXECUTABLE)
-	./$^
 
 clean: $(BUILDDIR)
 	rm -r $^
