@@ -62,7 +62,7 @@ uninstall:
 #
 
 format:
-	indent $(SOURCES) $(wildcard *.h) -linux -nut -i4
+	indent $(SOURCES) $(TESTSOURCES) $(wildcard *.h) -linux -nut -i4
 
 test: $(BUILDDIR)/$(TEST)
 	./test/automated.sh $^
