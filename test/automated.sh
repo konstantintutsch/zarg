@@ -4,7 +4,12 @@
 set -e
 
 # Executable used for testing
-BASE="$(dirname ${0})/../build/test"
+if [[ "${1}" == "" ]]
+then
+    echo "No test executable passed."
+    exit 2
+fi
+BASE="${1}"
 
 # check - Compare expected output and actual output of command
 # @arg1 - Expected output as string

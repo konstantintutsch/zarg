@@ -2,10 +2,13 @@
 # Files
 #
 
-SOURCES := $(wildcard *.c)
-
 BUILDDIR := build
+
+SOURCES := $(wildcard *.c)
 SHAREDOBJECT := libzarg.so
+
+TESTSOURCES := $(wildcard test/*.c)
+TEST := test
 
 ifeq ($(PREFIX),) # $(PREFIX) is empty or unset
 	PREFIX := /usr
@@ -20,13 +23,13 @@ INCLUDE_PATH := $(PREFIX)/include/
 CC := gcc
 CFLAGS := -O2 -Wall -fstack-protector
 
-LDFLAGS := -shared -fPIC
+LDFLAGS := -fPIC
 
 #
 # Targets not producing output files
 #
 
-.PHONY: format clean install uninstall
+.PHONY: format test clean install uninstall
 
 #
 # Build
@@ -36,7 +39,10 @@ $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
 $(BUILDDIR)/$(SHAREDOBJECT): $(BUILDDIR) $(SOURCES)
-	$(CC) $(CFLAGS) -o $@ $(SOURCES) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $(SOURCES) $(LDFLAGS) -shared
+
+$(BUILDDIR)/$(TEST): $(BUILDDIR) $(TESTSOURCES)
+	$(CC) $(CFLAGS) -o $@ $(TESTSOURCES) $(LDFLAGS) -lzarg
 
 
 install: $(BUILDDIR)/$(SHAREDOBJECT)
@@ -57,6 +63,9 @@ uninstall:
 
 format:
 	indent $(SOURCES) $(wildcard *.h) -linux -nut -i4
+
+test: $(BUILDDIR)/$(TEST)
+	./test/automated.sh $^
 
 clean: $(BUILDDIR)
 	rm -r $^

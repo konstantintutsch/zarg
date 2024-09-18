@@ -133,19 +133,19 @@ $ cd ./test
 Build the base binary using the `build` make rule.
 
 ```
-$ make ../build/test
+$ make build/test
 ```
 
 Now run the automated testing script
 
 ```
-$ ./automated.sh
+$ make test
 ```
 
 … or test manually.
 
 ```
-$ ./../build/test --help
+$ ./build/test --help
 ```
 
 ## Documentation
