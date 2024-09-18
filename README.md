@@ -105,7 +105,7 @@ Great job! That's how one should pass command line arguments!
 To compile libzarg, execute the `build` make rule.
 
 ```
-$ make build
+$ make build/libzarg.so
 ```
 
 After building libzarg, execute the `install` rule with root privileges to install libzarg to your system.
@@ -133,7 +133,7 @@ $ cd ./test
 Build the base binary using the `build` make rule.
 
 ```
-$ make build
+$ make ../build/test
 ```
 
 Now run the automated testing script
@@ -145,7 +145,7 @@ $ ./automated.sh
 … or test manually.
 
 ```
-$ ./base --help
+$ ./../build/test --help
 ```
 
 ## Documentation
