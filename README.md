@@ -12,16 +12,6 @@ _zarg_ aims to be a fast, minimalist and efficient library designed for lightwei
 -   simple boolean flags
 -   help dialogue generation
 
-## Table of Contents
-
--   [Example](#example)
--   [Installation](#installation)
-    -   [Prerequisites](#prerequisites)
-    -   [Compiling](#compiling)
--   [Removal](#removal)
--   [Testing](#testing)
--   [Documentation](#documentation)
-
 ## Example
 
 How you can use _zarg_.
