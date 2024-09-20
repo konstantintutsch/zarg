@@ -4,14 +4,13 @@
 #include <string.h>
 #include <stdbool.h>
 
-const char value_text[] = " [value]";
+const char value_text[] = " [value]"; /**< This variable stores the text which is used to indicate that Flag::value is true. */
 
 /**
- * gen_flag_help - Generate a help dialogue line for a flag
- * @arg1 - Flag
- * @arg2 - Furthest required offset of all flags that will be or have been passed
+ * This function generates and outputs a help dialogue line for a Flag to the command line.
+ * @param flag Flag
+ * @param furthest_offset Furthest required offset to seperate Flag::code from Flag::description to align with all descriptions of all other generated lines.
  */
-
 void gen_flag_help(Flag flag, int furthest_offset)
 {
     int description_offset = furthest_offset - strlen(flag.name);
@@ -30,15 +29,12 @@ void gen_flag_help(Flag flag, int furthest_offset)
 }
 
 /**
- * zinit - Check wether to display the help dialogue and generate it if necessary
- * @arg1 - Arguments (always argv from main)
- * @arg2 - Flags
- * @arg3 - Number of flags
+ * This function initializes the use of zarg's integrated help dialogue.
+ * @param argv Arguments as strings (argv from main)
+ * @param flags All Flag structures to be displayed by the help dialogue. This is an array of Flag structures and has to end with the _FLAG macro.
  *
- * Return: false No help dialogue was printed
- *         true  The help dialogue was printed, exit the program
+ * @return Whether the help dialogue was printed
  */
-
 bool zinit(char **argv, Flag flags[])
 {
     Flag help = { "help", 'h', false, "Show this dialogue" };

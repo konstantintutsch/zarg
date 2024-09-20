@@ -144,8 +144,13 @@ $ ./build/test --help
 
 ## Documentation
 
-To better understand functions and code provided by this library, start reading [zarg.h](/zarg.h) to locate a function in the source code.
+To better understand functions and code provided by this library, open [this site](https://konstantintutsch.com/zarg/globals.html) with your browser of choice.
 
-Then, enter the file containing the function you're interested in and read the comment explaining it's purpose, arguments and return values. This comment is always located above the definition of the function.
 
-These comments also contain best practices for handling return values of the function, if available.
+If you want to view the documentation offline, use [Doxygen](https://doxygen.nl). Just run the `doc` rule with make.
+
+```
+$ make doc
+```
+
+You can now view all documentation locally. A good entry point is `./build/doc/html/globals.html`.

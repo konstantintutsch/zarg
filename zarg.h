@@ -2,15 +2,15 @@
 
 #include <stdbool.h>
 
-#define _FLAG (Flag){"", 0, false, ""}
+#define _FLAG (Flag){"", 0, false, ""} /**< This macro marks the end of an array of Flag structures. */
 
 #define ZARG_H
 
 typedef struct {
-    char *name;
-    char code;
-    bool value;                 // false: boolean (no value passed after flag), true: with value
-    char *description;
+    char *name;                 /**< This field stores the full name of the Flag. It will be the text used after a double dash (`--`) */
+    char code;                  /**< This field stores the abbreviation of the name of the Flag. It will be the character used after a single dash (`-`) */
+    bool value;                 /**< This field indicates whether a Flag accepts a value or is just a toggle. */
+    char *description;          /**< This field stores the description of the function of the Flag. */
 } Flag;
 
 // init.c

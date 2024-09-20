@@ -5,13 +5,12 @@
 #include <string.h>
 
 /**
- * flag_count - Count how many arguments of a given flag were passed
- * @arg1 - Arguments as an array of strings
- * @arg2 - Flag
+ * This function counts how many arguments of a given Flag were passed.
+ * @param arguments Arguments as strings
+ * @param flag Flag
  *
- * Return: The number of flags
+ * @return The number of arguments matching the Flag structure
  */
-
 int flag_count(char **arguments, Flag flag)
 {
     int amount = 0;
@@ -26,16 +25,15 @@ int flag_count(char **arguments, Flag flag)
 }
 
 /**
- * flag_value - Read and filter values from command line arguments
- *              free() has to be called on the return value
- * @arg1 - Arguments with values as an array of strings, e. g. ["--directory ./src", "--notdirectory ./file.txt"]
- * @arg2 - Flag, e. g. (Flag){"directory", …}
+ * This function reads and filters values from arguments.
+ * @param arguments Arguments as strings (argv from main)
+ * @param flag Flag
  *
- * Return: Values, e. g. ["./src"]
+ * @return The respective values of the passed Flag structure from the arguments. `free()` has to be called on the return
  */
-
 char **flag_value(char **arguments, Flag flag)
 {
+    // Return nothing if the passed Flag is a toggle
     if (flag.value == false)
         return (char **)malloc(0);
 

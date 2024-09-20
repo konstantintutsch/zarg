@@ -29,7 +29,7 @@ LDFLAGS := -fPIC
 # Targets not producing output files
 #
 
-.PHONY: format test clean install uninstall
+.PHONY: doc format test clean install uninstall
 
 #
 # Build
@@ -60,6 +60,9 @@ uninstall:
 #
 # Utilities
 #
+
+doc: $(BUILDDIR)
+	doxygen doc/Doxyfile
 
 format:
 	indent $(SOURCES) $(TESTSOURCES) $(wildcard *.h) -linux -nut -i4

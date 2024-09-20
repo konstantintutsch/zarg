@@ -3,12 +3,11 @@
 #include <stddef.h>
 
 /**
- * ppclen - Counts how many elements exist in an array of pointers to pointers to characters
- * @arg1 - Array of strings with last element equal to NULL
+ * This function counts how many elements exist in an array of strings.
+ * @param array Array of strings with last element equal to NULL
  *
- * Return: The number of elements
+ * @return The number of elements
  */
-
 int ppclen(char **array)
 {
     int count = 0;
@@ -20,12 +19,11 @@ int ppclen(char **array)
 }
 
 /**
- * arflen - Counts how many elements exist in an array of Flags
- * @arg1 - Array of Flags with last element equal to _FLAG
+ * This function counts how many elements exist in an array of Flag structures
+ * @param array Array of Flag structures with last element equal to _FLAG macro
  *
- * Return: The number of elements
+ * @return The number of elements
  */
-
 int arflen(Flag array[])
 {
     int count = 0;

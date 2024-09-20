@@ -3,13 +3,11 @@
 #include <string.h>
 
 /**
- * valid_flag - Validate a string as a flag
- * @arg1 - Argument as a string
+ * This function checks whether an argument is a flag or a value.
+ * @param argument Argument as a string
  *
- * Return: false Invalid
- *         true  Valid
+ * @return The validity of the passed argument as a flag
  */
-
 bool valid_flag(char *argument)
 {
     if (argument[0] != '-')
@@ -22,14 +20,12 @@ bool valid_flag(char *argument)
 }
 
 /**
- * match_flag - Compare a string and a flag
- * @arg1 - Argument as a string
- * @arg2 - Flag
+ * This function compares an argument and a Flag.
+ * @param argument Argument as a string
+ * @param flag Flag
  *
- * Return: false argument != flag
- *         true  argument == flag
+ * @return Whether the argument and the Flag match
  */
-
 bool match_flag(char *argument, Flag flag)
 {
     if (!valid_flag(argument))
@@ -42,14 +38,12 @@ bool match_flag(char *argument, Flag flag)
 }
 
 /**
- * compare_flag - Compare two Flag structs
- * @arg1 - First flag to compare with
- * @arg2 - Second flag to compare with
+ * This function compares two Flag structures.
+ * @param first  First Flag to compare
+ * @param second Second Flag to compare
  *
- * Return: false Flags do not match
- *         true  Flags match
+ * @return Whether the Flag structures are equal
  */
-
 bool compare_flag(Flag first, Flag second)
 {
     if (strcmp(first.name, second.name))
