@@ -20,7 +20,7 @@ int ppclen(char **array)
 
 /**
  * This function counts how many elements exist in an array of Flag structures
- * @param array Array of Flag structures with last element equal to _FLAG macro
+ * @param array Array of Flag structures with last element equal to `_FLAG` macro
  *
  * @return The number of elements
  */
