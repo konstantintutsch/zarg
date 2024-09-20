@@ -12,14 +12,8 @@ Make sure to describe the idea you've had or the problem you've experienced in d
 
 You want to directly contribute to this project? Great! Open a pull request via [GitHub](https://github.com/konstantintutsch/zarg) or [Codeberg](https://codeberg.org/konstantintutsch/zarg).
 
-But before you commit your code, run GNU indent on it. You can use the `format` make rule if you've edited an already existing file.
+But before you commit your code, run GNU indent on it. You can use the `format` make rule. [GNU Indent](https://www.gnu.org/software/indent/) is required.
 
 ```
 make format
-```
-
-If you've added a new file, run GNU indent manually.
-
-```
-indent file.c -linux -nut -i4
 ```
