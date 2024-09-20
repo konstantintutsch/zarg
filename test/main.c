@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     /**
      * Test for Flag.value = false (without)
      */
-    if (flag_count(argv, without) > 0)
+    if (flag_passed(argv, without))
         printf("passed\n");
 
     return 0;

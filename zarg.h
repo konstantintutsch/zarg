@@ -28,5 +28,6 @@ char **flag_value(char **arguments, Flag flag);
 // tools.c
 int ppclen(char **array);
 int arflen(Flag array[]);
+bool flag_passed(char **arguments, Flag flag);
 
 #endif

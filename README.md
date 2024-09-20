@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
     printf("Your numbers sum up to %d!\n", total);
 
-    if (flag_count(argv, encourage) > 0)
+    if (flag_passed(argv, encourage))
         printf
             ("Great job! That's how one should pass command line arguments!\n");
 

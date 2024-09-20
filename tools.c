@@ -1,5 +1,6 @@
 #include "zarg.h"
 
+#include <stdbool.h>
 #include <stddef.h>
 
 /**
@@ -32,4 +33,19 @@ int arflen(Flag array[])
         count++;
 
     return (count);
+}
+
+/**
+ * This function checks whether a Flag was passed as an argument.
+ * @param arguments Arguments as strings (argv from main)
+ * @param flag Flag
+ *
+ * @return Whether the Flag was found among the arguments
+ */
+bool flag_passed(char **arguments, Flag flag)
+{
+    if (flag_count(arguments, flag) > 0)
+        return (true);
+
+    return (false);
 }

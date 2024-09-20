@@ -2,6 +2,10 @@
 
 ⚠️ — Breaking change
 
+# main
+
+- Add `flag_passed()`
+
 # 0.1.2
 
 -   Add `compare_flag()`
