@@ -39,7 +39,7 @@ bool zinit(char **argv, Flag flags[])
 {
     Flag help = { "help", 'h', false, "Show this dialogue" };
 
-    if (flag_count(argv, help) == 0)
+    if (!flag_passed(argv, help))
         return false;           // --help was not issued
 
     int length = arflen(flags);
