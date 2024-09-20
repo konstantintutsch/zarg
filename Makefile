@@ -62,7 +62,7 @@ uninstall:
 #
 
 doc: $(BUILDDIR)
-	doxygen doc/Doxyfile
+	doxygen Doxyfile
 
 format:
 	indent $(SOURCES) $(TESTSOURCES) $(wildcard *.h) -linux -nut -i4
