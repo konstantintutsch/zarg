@@ -1,5 +1,9 @@
 # Changelog
 
+# main
+
+- Add dependencies to `zarg.h`
+
 # 1.0.0
 
 - Add `flag_passed()`

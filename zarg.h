@@ -1,6 +1,10 @@
 #ifndef ZARG_H
 
 #include <stdbool.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 
 #define _FLAG (Flag){"", 0, false, ""} /**< This macro marks the end of an array of Flag structures. */
 
