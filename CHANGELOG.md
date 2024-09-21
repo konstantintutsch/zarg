@@ -5,6 +5,7 @@
 # main
 
 - Add `flag_passed()`
+- Add `argument_value()`
 
 # 0.1.2
 

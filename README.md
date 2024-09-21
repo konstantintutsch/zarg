@@ -23,14 +23,12 @@ How you can use _zarg_.
 
 int main(int argc, char *argv[])
 {
-    // long flag, short flag, flag that accepts a value?, description of flag
     Flag plus = { "add", 'a', true, "Add up numbers" };
     Flag encourage = { "encourage", 'e', false, "Encourage the user" };
+    Flag flags[] = { plus, encourage, _FLAG };
 
-    // argv, Flags[]: the last element in this array has to be the macro _FLAG to mark the end of the array
-    if (zinit(argv, (Flag[]) {
-              plus, encourage, _FLAG}
-        ))
+    // Help dialogue
+    if (zinit(argv, flags))
         return 0;
 
     int total = 0;
@@ -39,12 +37,20 @@ int main(int argc, char *argv[])
     for (int i = 0; i < ppclen(numbers); i++)   // Do not use flag_count() here, this will inevitably lead to a memory leak.
         total += atoi(numbers[i]);
     free(numbers);              // Always call free() on the return of flag_value()
-
     printf("Your numbers sum up to %d!\n", total);
 
     if (flag_passed(argv, encourage))
         printf
             ("Great job! That's how one should pass command line arguments!\n");
+
+    char **files = argument_value(argv, flags); // Get all arguments not in relation to any Flag
+    if (ppclen(files) > 0) {
+        printf("You also passed these files …\n");    // There were such arguments
+        for (int i = 0; i < ppclen(files); i++)
+            printf("- %s\n", files[i]);
+        printf("... which will be completely ignored!\n");
+    }
+    free(files);                // Always call free() on the return of argument_value()
 
     return 0;
 }
@@ -82,6 +88,22 @@ $ ./myzarg --encourage -a 40 -a 2
 Your numbers sum up to 42!
 Great job! That's how one should pass command line arguments!
 ```
+
+Wait, can I pass input files?
+
+```
+$ ./myzarg -a 21 file.txt -a 21 another_file.txt -e a_third_file.txt an_image.jpg
+Your numbers sum up to 42!
+Great job! That's how one should pass command line arguments!
+You also passed these files …
+- file.txt
+- another_file.txt
+- a_third_file.txt
+- an_image.jpg
+... which will be completely ignored!
+```
+
+Sure thing!
 
 ## Installation
 

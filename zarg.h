@@ -24,6 +24,7 @@ bool compare_flag(Flag first, Flag second);
 // parse.c
 int flag_count(char **arguments, Flag flag);
 char **flag_value(char **arguments, Flag flag);
+char **argument_value(char **arguments, Flag flags[]);
 
 // tools.c
 int ppclen(char **array);

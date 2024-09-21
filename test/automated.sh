@@ -64,5 +64,14 @@ check "passed" "--boolean"
 ## Opposite (Flag not passed)
 check "" ""
 
+# Non-related
+check "123
+456
+passed
+File: this
+File: is
+File: a
+File: file" "-v 123 -b this is --value 456 a file"
+
 # Finished
 echo "All checks passed. Success 🟢"

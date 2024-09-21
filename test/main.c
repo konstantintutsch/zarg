@@ -13,10 +13,9 @@ int main(int argc, char *argv[])
 {
     Flag with = { "value", 'v', true, "A flag accepting a value" };
     Flag without = { "boolean", 'b', false, "A flag not reading a value" };
+    Flag flags[] = { with, without, _FLAG };
 
-    if (zinit(argv, (Flag[]) {
-              with, without, _FLAG}
-        ))
+    if (zinit(argv, flags))
         return 0;
 
     /**
@@ -32,6 +31,14 @@ int main(int argc, char *argv[])
      */
     if (flag_passed(argv, without))
         printf("passed\n");
+
+    /**
+     * Test for non-related arguments (argument_value())
+     */
+    char **files = argument_value(argv, flags);
+    for (int i = 0; i < ppclen(files); i++)
+        printf("File: %s\n", files[i]);
+    free(files);
 
     return 0;
 }
