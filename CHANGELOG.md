@@ -1,6 +1,6 @@
 # Changelog
 
-# main
+# 1.0.1
 
 - Add dependencies to `zarg.h`
 
