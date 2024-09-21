@@ -22,13 +22,13 @@ bool match_flag(char *argument, Flag flag);
 bool compare_flag(Flag first, Flag second);
 
 // parse.c
-int flag_count(char **arguments, Flag flag);
+unsigned int flag_count(char **arguments, Flag flag);
 char **flag_value(char **arguments, Flag flag);
 char **argument_value(char **arguments, Flag flags[]);
 
 // tools.c
-int ppclen(char **array);
-int arflen(Flag array[]);
+unsigned int ppclen(char **array);
+unsigned int arflen(Flag array[]);
 bool flag_passed(char **arguments, Flag flag);
 
 #endif

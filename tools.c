@@ -9,14 +9,14 @@
  *
  * @return The number of elements
  */
-int ppclen(char **array)
+unsigned int ppclen(char **array)
 {
-    int count = 0;
+    unsigned int count = 0;
 
     while (array[count] != NULL)
         count++;
 
-    return (count);
+    return count;
 }
 
 /**
@@ -25,14 +25,14 @@ int ppclen(char **array)
  *
  * @return The number of elements
  */
-int arflen(Flag array[])
+unsigned int arflen(Flag array[])
 {
-    int count = 0;
+    unsigned int count = 0;
 
     while (!compare_flag(array[count], _FLAG))
         count++;
 
-    return (count);
+    return count;
 }
 
 /**

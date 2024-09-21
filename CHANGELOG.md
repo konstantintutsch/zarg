@@ -6,6 +6,7 @@
 
 - Add `flag_passed()`
 - Add `argument_value()`
+- Change data type of `ppclen()`, `arflen()` and `flag_count()` from `int` to `unsigned int`
 
 # 0.1.2
 

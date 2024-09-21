@@ -11,9 +11,9 @@ const char value_text[] = " [value]"; /**< This variable stores the text which i
  * @param flag Flag
  * @param furthest_offset Furthest required offset to seperate Flag.description from Flag.code to align with all descriptions of all other generated lines.
  */
-void gen_flag_help(Flag flag, int furthest_offset)
+void gen_flag_help(Flag flag, unsigned int furthest_offset)
 {
-    int description_offset = furthest_offset - strlen(flag.name);
+    unsigned int description_offset = furthest_offset - strlen(flag.name);
 
     printf("--%s, -%c", flag.name, flag.code);
 
@@ -45,9 +45,9 @@ bool zinit(char **argv, Flag flags[])
     int length = arflen(flags);
 
     // Calculate length of longest argument with value_text
-    int furthest_offset = strlen(help.name);
+    unsigned int furthest_offset = strlen(help.name);
     for (int i = 0; i < length; i++) {
-        int buffer = strlen(flags[i].name);
+        unsigned int buffer = strlen(flags[i].name);
         if (flags[i].value == true)
             buffer += strlen(value_text);
 

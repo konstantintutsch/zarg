@@ -11,10 +11,10 @@
  *
  * @return The number of arguments matching the Flag structure
  */
-int flag_count(char **arguments, Flag flag)
+unsigned int flag_count(char **arguments, Flag flag)
 {
-    int amount = 0;
-    int length = ppclen(arguments);
+    unsigned int amount = 0;
+    unsigned int length = ppclen(arguments);
 
     for (int i = 1; i < length; i++) {
         if (match_flag(arguments[i], flag))
@@ -41,8 +41,8 @@ char **flag_value(char **arguments, Flag flag)
     char **values =
         malloc(flag_count(arguments, flag) * sizeof(char *) + sizeof(NULL));
 
-    int length = ppclen(arguments);
-    int write = 0;
+    unsigned int length = ppclen(arguments);
+    unsigned int write = 0;
 
     for (int i = 0; i < length; i++) {
         if (!valid_flag(arguments[i]))
@@ -77,7 +77,7 @@ char **flag_value(char **arguments, Flag flag)
  */
 char **argument_value(char **arguments, Flag flags[])
 {
-    int arguments_c = ppclen(arguments);        // NULL in arguments[] marks a related argument, not the end of the array
+    unsigned int arguments_c = ppclen(arguments);        // NULL in arguments[] marks a related argument, not the end of the array
 
     arguments[0] = NULL;        // Executed command, not an argument
     for (int index_a = 1; index_a < arguments_c; index_a++) {
