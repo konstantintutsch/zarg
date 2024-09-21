@@ -77,7 +77,7 @@ char **flag_value(char **arguments, Flag flag)
  */
 char **argument_value(char **arguments, Flag flags[])
 {
-    unsigned int arguments_c = ppclen(arguments);        // NULL in arguments[] marks a related argument, not the end of the array
+    unsigned int arguments_c = ppclen(arguments);       // NULL in arguments[] marks a related argument, not the end of the array
 
     arguments[0] = NULL;        // Executed command, not an argument
     for (int index_a = 1; index_a < arguments_c; index_a++) {
@@ -102,10 +102,9 @@ char **argument_value(char **arguments, Flag flags[])
         int *array;
         size_t size;
     } dynamic_int;
-    dynamic_int index = { NULL, 0 };
-                                   // All indexes for arguments[] which contain values to be returned
+    dynamic_int index = { NULL, 0 };    // Index of non-related for arguments[]
 
-    size_t allocate = 0; // Number of characters which will be stored
+    size_t allocate = 0;        // Number of characters which will be stored
     for (int i = 0; i < arguments_c; i++) {
         if (arguments[i] == NULL)       // is related, skip
             continue;
