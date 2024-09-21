@@ -1,12 +1,14 @@
 # Changelog
 
-⚠️ — Breaking change
-
-# main
+# 1.0.0
 
 - Add `flag_passed()`
 - Add `argument_value()`
 - Change data type of `ppclen()`, `arflen()` and `flag_count()` from `int` to `unsigned int`
+
+---
+
+⚠️ — Breaking change
 
 # 0.1.2
 
