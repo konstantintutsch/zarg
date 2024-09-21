@@ -2,16 +2,6 @@
 
 A minimalist C library for standardi**z**ed handling of command line **arg**uments. 🚀
 
-## Features
-
-_zarg_ aims to be a fast, minimalist and efficient library designed for lightweight applications 🍃
-
--   short flags: single dash and single alphanumeric character
--   long flags: double dash and multiple alphanumeric characters
--   values: read strings behind flags and create an array
--   simple boolean flags
--   help dialogue generation
-
 ## Example
 
 How you can use _zarg_.
