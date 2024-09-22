@@ -1,5 +1,9 @@
 # Changelog
 
+# main
+
+- Replace global variable `value_text` with `FLAG_VALUE` macro
+
 # 1.0.1
 
 - Add dependencies to `zarg.h`

@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-const char value_text[] = " [value]"; /**< This variable stores the text which is used to indicate that Flag.value is true. */
+#define FLAG_VALUE " [value]" /**< This macro defines the text which is used to indicate that Flag.value is true within the help dialogue. */
 
 /**
  * This function generates and outputs a help dialogue line for a Flag to the command line.
@@ -18,8 +18,8 @@ void gen_flag_help(Flag flag, unsigned int furthest_offset)
     printf("--%s, -%c", flag.name, flag.code);
 
     if (flag.value == true) {
-        printf(value_text);
-        description_offset -= strlen(value_text);
+        printf(FLAG_VALUE);
+        description_offset -= strlen(FLAG_VALUE);
     }
     // Print necessary offset
     for (int i = 0; i < description_offset; i++)
@@ -44,12 +44,12 @@ bool zinit(char **argv, Flag flags[])
 
     int length = arflen(flags);
 
-    // Calculate length of longest argument with value_text
+    // Calculate length of longest argument with FLAG_VALUE
     unsigned int furthest_offset = strlen(help.name);
     for (int i = 0; i < length; i++) {
         unsigned int buffer = strlen(flags[i].name);
         if (flags[i].value == true)
-            buffer += strlen(value_text);
+            buffer += strlen(FLAG_VALUE);
 
         if (buffer > furthest_offset)
             furthest_offset = buffer;
