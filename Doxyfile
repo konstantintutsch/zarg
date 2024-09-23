@@ -1034,7 +1034,8 @@ EXCLUDE_PATTERNS       = "*/test/*" \
 # ANamespace::AClass, ANamespace::*Test
 
 EXCLUDE_SYMBOLS        = ZARG_H \
-                         FLAG_VALUE
+                         FLAG_VALUE \
+                         gen_flag_help
 
 # The EXAMPLE_PATH tag can be used to specify one or more files or directories
 # that contain example code fragments that are included (see the \include
