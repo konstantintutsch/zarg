@@ -1,10 +1,10 @@
 # zarg
 
-A minimalist C library for standardi**z**ed handling of command line **arg**uments. 🚀
+A minimalist C library for simple handling of command line arguments. 🚀
 
 ## Example
 
-How you can use _zarg_.
+How to implement _zarg_ in a program.
 
 ```c
 #include <stdio.h>
